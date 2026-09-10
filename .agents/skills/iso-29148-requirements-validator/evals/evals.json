@@ -21,6 +21,27 @@
       "prompt": "У нас є ці user stories та бізнес-правила для банківського додатку. Перевір їх як вимоги — які мають проблеми з точки зору якості та верифікованості?\n\n- Як клієнт, я хочу переказувати гроші, щоб платити за послуги.\n- Як адміністратор, я хочу блокувати акаунт при підозрі на шахрайство.\n- Бізнес-правило: комісія за переказ становить 1% від суми.\n- Бізнес-правило: клієнт може мати не більше 5 активних карток.",
       "expected_output": "Аналізує user stories як вимоги (навіть без ISO згадки). Знаходить: story 1 без acceptance criteria, story 2 неоднозначна (підозра на шахрайство — критерій?), правило 1 верифіковане (1%), правило 2 верифіковане (5 карток). Пропонує acceptance criteria для story. Оцінює набір: відсутні security, performance.",
       "files": []
+    },
+    {
+      "id": 4,
+      "name": "english-requirements-api",
+      "prompt": "Please validate these API requirements for our microservice:\n\n- The system should handle authentication via JWT tokens.\n- The API must be secure and follow best practices.\n- The system will return responses in JSON format.\n- The system may support rate limiting.\n- All endpoints shall be documented using OpenAPI 3.0 specification.",
+      "expected_output": "Analyzes English-language requirements. Finds: #1 'should' is not binding (Major), #2 'must' is ambiguous + 'secure' and 'best practices' are vague (Major), #3 'will' is not a requirement (Major), #4 'may' is allowance not requirement (Minor), #5 good - uses 'shall' with specific standard. Provides reformulated requirements in English. Suggests verification methods.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "mixed-requirements-with-design-decisions",
+      "prompt": "Перевір ці вимоги для CRM системи:\n\n- Система повинна використовувати React для фронтенду.\n- Система повинна зберігати дані в PostgreSQL.\n- Користувач повинен мати можливість створювати, редагувати та видаляти контакти.\n- Система має бути зручною та інтуїтивно зрозумілою.\n- Система повинна підтримувати експорт даних у форматі Excel та PDF.\n- У разі помилки система повинна показувати повідомлення про помилку.",
+      "expected_output": "Знаходить: #1-2 приховані design-рішення (React, PostgreSQL) - Minor/Major, #3 неатомарна (3 дії) - Major, #4 розмиті терміни (зручна, інтуїтивно) - Major, #5 добра але можна уточнити формати - Minor, #6 неоднозначна (які помилки, який формат повідомлення) - Major. Пропонує переформульовані вимоги без design-рішень, розбиває неатомарну, уточнює розмиті терміни.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "negative-formulations-and-passive-voice",
+      "prompt": "Ось вимоги до системи моніторингу. Перевір їх:\n\n- Система не повинна дозволяти доступ неавторизованим користувачам.\n- Повинна виконуватись перевірка ліцензії щодня.\n- Дані не мають втрачатися при збої системи.\n- Повинно бути забезпечене резервне копіювання.\n- Система повинна надавати доступ лише авторизованим користувачам з роллю 'admin' або 'operator'.",
+      "expected_output": "Знаходить: #1 негативне формулювання - Minor, #2 пасивний стан + не визначено 'щодня' (який час) - Major, #3 негативне + 'не мають втрачатися' не верифіковане - Major, #4 пасивний стан + не визначено частоту/метод backup - Major, #5 добра вимога - ✅. Пропонує переформулювання в активному стані та позитивному формулюванні.",
+      "files": []
     }
   ]
 }
