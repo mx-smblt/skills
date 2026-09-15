@@ -1,0 +1,61 @@
+{
+  "skill_name": "iso-2510-2011",
+  "evals": [
+    {
+      "id": 1,
+      "name": "nfr-requirements-validation",
+      "prompt": "Проаналізуй ці нефункціональні вимоги до веб-порталу на відповідність стандарту ISO/IEC 25010:2011, знайди дефекти та запропонуй виправлені варіанти з метриками:\n\n1. Портал повинен працювати дуже швидко і витримувати високі навантаження.\n2. Система повинна бути абсолютно безпечною та захищеною від будь-яких зломів.\n3. Додаток повинен працювати на будь-яких пристроях та операційних системах.\n4. Усі збої системи мають відновлюватися автоматично та непомітно для користувача.\n5. Код системи має бути простим для супроводу та тестування нових функцій.",
+      "expected_output": "Аналіз кожної з 5 вимог за відповідними характеристиками ISO 25010 (Performance efficiency, Security, Portability/Usability, Reliability, Maintainability). Визначення дефектів (невимірюваність, абсолютні твердження, розмиті терміни, відсутність конкретних підхарактеристик). Надання переформульованих вимог з кількісними метриками SQuaRE (latency P95, RPS, AES-256/TLS 1.3, RPO/RTO, test coverage).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "architecture-gap-analysis-report",
+      "prompt": "Підготуй звіт про відповідність (Conformance & GAP Report) за стандартом ISO 25010 для архітектури нашого фінтех-сервісу:\n\nСервіс платежів реалізовано у вигляді одного монолітного Node.js застосунку, підключеного до єдиної реляційної бази даних PostgreSQL. Запити від мобільних додатків надходять безпосередньо без API Gateway. Для автентифікації використовується логін та пароль з перевіркою через сесії в пам'яті сервера. Зовнішні банківські API викликаються синхронно. Логи записуються у локальний текстовий файл на сервері.",
+      "expected_output": "Структурований звіт про відповідність стандарту ISO/IEC 25010:2011 зі скоринг-матрицею. Виявлення критичних ризиків: відсутність відмовостійкості (SPOF бази та моноліту), відсутність масштабованості (сесії в пам'яті), вразливості безпеки (відсутність MFA, зберігання сесій, ризики цілісності), синхронні блокуючі виклики (Time behaviour), відсутність централізованого аудиту (Accountability). Пріоритизований план покращення (Circuit Breaker, Redis sessions, API Gateway, JWT/MFA, ELK/OpenTelemetry).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "quality-in-use-medical-system",
+      "prompt": "Оціни якість у використанні (Quality in Use) за стандартом ISO 25010 для інтерфейсу мобільного застосунку лікаря швидкої допомоги. Зараз лікар витрачає 90 секунд на пошук карти пацієнта через 6 обов'язкових екранів, інтерфейс не підтримує офлайн-режим (за відсутності зв'язку на виклику додаток блокується), а кнопки підтвердження критичних дозувань мають однаковий розмір та сірий колір з іншими полями. Які ризики та як покращити систему?",
+      "expected_output": "Оцінка 5 характеристик Quality in Use: Effectiveness (помилки дозування), Efficiency (затримка 90 сек замість екстреного нормативу), Satisfaction/Trust, Freedom from risk (Health and safety risk mitigation - загроза життю пацієнта), Context coverage (Context completeness - відсутність офлайн-режиму). Пропозиція покращень: 1-Click доступ, чіткий захист від помилок (User error protection), офлайн кешування даних.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "source-code-maintainability-review",
+      "prompt": "Оціни фрагмент коду та архітектури за характеристиками Maintainability та Portability стандарту ISO 25010:\n\n```python\nimport os, sys, sqlite3, requests\n\ndef process_and_save(data):\n    # Hardcoded path for Windows only\n    db_path = 'C:\\\\ProgramData\\\\App\\\\data.db'\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    try:\n        # God function: parsing, validation, db query, external HTTP call, email alert\n        if data['type'] == 'A':\n            cursor.execute(f\"INSERT INTO orders VALUES ('{data['id']}', '{data['amount']}')\")\n            conn.commit()\n            requests.post('https://api.payment.internal/charge', json={'id': data['id'], 'sum': data['amount']})\n        elif data['type'] == 'B':\n            # 200 lines of complex nested logic without comments\n            pass\n    except Exception as e:\n        pass # swallow error\n```\n\nЯкі дефекти за ISO 25010 тут є і як їх виправити?",
+      "expected_output": "Аналіз підхарактеристик Maintainability (Modularity - God function/High coupling, Analysability - swallowed exception/empty catch, Modifiability - rigid conditionals, Testability - hardcoded db path and direct HTTP calls) та Portability (Adaptability - hardcoded Windows path `C:\\\\...`). Знайдені вразливості Security (SQL Injection). Надання рефакторингу з Dependency Injection, параметризованими запитами, обробкою помилок та кросплатформними шляхами.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "english-cloud-api-evaluation",
+      "prompt": "Evaluate the following cloud microservice architecture against ISO/IEC 25010:2011 product quality model:\n\nOur microservice is deployed on AWS ECS with auto-scaling (2-10 instances). It uses an AWS ALB with TLS 1.3 termination, DynamoDB with on-demand capacity, and AWS KMS for encryption at rest. All API endpoints require JWT Bearer tokens validated via OAuth 2.0 / OIDC. Structured JSON logs are streamed to AWS CloudWatch with correlation IDs. However, all microservices communicate via direct synchronous HTTP REST calls without caching or circuit breakers, and database failover takes up to 15 minutes.\n\nProvide an ISO 25010 Conformance Scorecard, identify gaps, and propose a trade-off balanced remediation plan.",
+      "expected_output": "Analyzes all 8 ISO 25010 product quality characteristics in English. Identifies strong areas (Security: Confidentiality/Authenticity 🟢, Maintainability: Analysability 🟢, Portability 🟢) and critical weaknesses (Reliability: Fault tolerance/Recoverability 🔴 due to sync cascading failure and 15min DB failover, Performance: Time behaviour under load 🟡). Provides Conformance Scorecard, detailed findings, and a prioritized remediation plan (Circuit Breakers/Resilience4j, Async messaging with SQS/Kafka, Redis caching) with trade-offs analysis.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "trade-offs-and-balancing-analysis",
+      "prompt": "Ми проектуємо банківський мобільний застосунок. Керівництво вимагає максимального рівня безпеки (Security: Confidentiality, Authenticity, Non-repudiation) та одночасно миттєвого відгуку і надзвичайної простоти для клієнтів (Performance efficiency: Time behaviour, Usability: Operability, Learnability). Як збалансувати ці конфліктуючі характеристики якості за ISO 25010 і які рішення обрати?",
+      "expected_output": "Аналіз компромісів якості (Quality Trade-offs) між Security, Usability та Performance efficiency за ISO 25010. Пропонує інженерні патерни балансування: біометрична автентифікація (FaceID/TouchID) замість довгих паролів для швидкого входу + step-up authentication (MFA/підпис) лише для великих сум; асинхронне шифрування та кешування сесійних ключів; оптимістичний UI з фоновою валідацією. Чітке обґрунтування відповідно до принципів стандарту.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "ecommerce-capacity-and-resilience-audit",
+      "prompt": "Перед Black Friday провели навантажувальний тест інтернет-магазину. При 5000 одночасних користувачів час відгуку каталогу зріс з 300 мс до 12 секунд, відсоток 504 Gateway Timeout сягнув 18%, а під час перезавантаження сервера бази даних кошики покупців були втрачені. Оціни ситуацію за ISO 25010 та дай план невідкладних дій.",
+      "expected_output": "Аналіз дефектів за ISO 25010: порушено Capacity (4.2.2.3), Time behaviour (4.2.2.1), Availability (4.2.5.2), Recoverability & Fault tolerance (4.2.5.3 / 4.2.5.4 - втрата сесійного стану кошиків). Оцінка впливу на Quality in Use (Economic risk mitigation - прямі фінансові збитки). План дій: 1) Винесення кошиків та сесій у реплікований Redis Cluster; 2) Кешування каталогу товарів через CDN / Varnish / Redis; 3) Впровадження Rate Limiting / Virtual Waiting Room для захисту від перевантаження.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "full-system-conformance-audit-report",
+      "prompt": "Проведи повний аудит на відповідність стандарту ISO/IEC 25010:2011 для корпоративної CRM системи v2.0 і надай фінальний звіт про відповідність з рекомендаціями для проходження сертифікації якості.\n\nОпис системи: CRM для роботи 200 менеджерів із продажу. Веб-інтерфейс на React, бекенд на Java Spring Boot, БД PostgreSQL. Система підтримує імпорт/експорт у Excel, інтеграцію з телефонією Asterisk, має базову рольову модель (Admin, Manager). Тестове покриття коду становить 35%, документація API часткова, резервне копіювання БД виконується щотижня, логи зберігаються в локальних файлах, перевірка відповідності WCAG не проводилася.",
+      "expected_output": "Повний офіційний звіт про відповідність ISO 25010:2011. Executive Summary, Scorecard за 8 характеристиками Product Quality та 5 характеристиками Quality in Use. Детальний перелік дефектів: Testability (35% coverage) - Major, Recoverability (щотижневий backup -> високий RPO) - Critical/Major, Usability -> Accessibility (відсутність перевірки WCAG) - Major, Maintainability -> Analysability (локальні логи) - Minor. Дорожня карта виправлень для підготовки до сертифікації.",
+      "files": []
+    }
+  ]
+}
