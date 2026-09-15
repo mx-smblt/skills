@@ -8,6 +8,8 @@
 |---------------------------------------------------|------------------------------------|------------------------------------------------------------------------|
 | **BRS** — Business Requirements Specification     | business management                | чому організація розвиває систему; бізнес-цілі, процеси, правила       |
 | **StRS** — Stakeholder Requirements Specification | business operational / stakeholder | потреби stakeholders; як система взаємодіє з операційним середовищем   |
+| **OpsCon** — System Operational Concept (Annex A) | system / user operational          | концепція застосування цільової системи очима користувача; сценарії    |
+| **ConOps** — Concept of Operations (Annex B)      | enterprise / leadership            | бачення організації щодо портфеля систем, стратегічний план, управління|
 | **SyRS** — System Requirements Specification      | system                             | технічні вимоги до системи: функції, performance, інтерфейси, security |
 | **SRS** — Software Requirements Specification     | software                           | вимоги до конкретного software-продукту та його зовнішніх інтерфейсів  |
 
@@ -49,6 +51,25 @@
 - user requirements (з context of use: effectiveness, efficiency, satisfaction);
 - operational concept і сценарії.
 
+## Чеклист OpsCon — System Operational Concept (ISO 29148, Annex A - Normative)
+
+- scope & identification (система, спонсори, користувачі, розробники);
+- referenced documents (стандарти, нормативні акти з версіями та датами);
+- current system or situation (поточний стан, фонові процеси, операційні політики та обмеження);
+- justification for and nature of changes (мотивація, перелік і пріоритети змін);
+- concept for the proposed system (цілі, operational policies/constraints, опис середовища, режими та стани);
+- operational scenarios (користувацькі сценарії використання: штатні, пікові, деградовані, аварійні);
+- summary of impacts (вплив на користувачів, операційні процеси, персонал, інфраструктуру);
+- analysis of proposed system (переваги, недоліки, операційні обмеження та ризики).
+
+## Чеклист ConOps — Concept of Operations (ISO 29148, Annex B - Informative)
+
+- purpose & scope (поточний стан організації, бізнес-домени, стратегічні розриви);
+- strategic plan (довгостроковий план розвитку бізнесу та цільових систем);
+- effectiveness (очікувана ефективність та вигоди від реалізації плану);
+- overall operation (контекст, взаємозв'язок підрозділів, поточних систем та майбутніх рішень);
+- governance (політики управління, організаційна структура, план інвестицій, безпека, BCP, регуляторна відповідність).
+
 ## Чеклист SyRS (ISO 29148, 9.5)
 
 - system purpose;
@@ -60,20 +81,21 @@
 - system interface requirements (включно з human element);
 - system operations: HSI, maintainability, reliability;
 - system modes and states;
-- physical characteristics (якщо релевантно);
-- environmental conditions (якщо релевантно);
+- physical characteristics (фізичні параметри та adaptability requirements);
+- environmental conditions (робочі умови, температура, електромагнітна сумісність тощо);
 - system security requirements;
 - information management requirements;
 - policy and regulation requirements;
 - life cycle sustainment requirements;
-- verification (підхід і методи);
+- packaging, handling, shipping and transportation requirements (9.5.17);
+- verification (підхід, методи та критерії успіху);
 - assumptions and dependencies.
 
 ## Чеклист SRS (ISO 29148, 9.6)
 
 - purpose;
 - scope (що software робитиме);
-- product perspective: system/user/hardware/software/communications interfaces, memory, operations;
+- product perspective: system/user/hardware/software/communications interfaces, memory, operations, site adaptation requirements (9.6.4.8), interfaces with services (9.6.4.9);
 - product functions (резюме основних функцій);
 - user characteristics;
 - limitations;
@@ -120,11 +142,25 @@
 
 Якщо набір містить лише functional requirements, але для реалізації потрібні інші категорії — вкажи gaps.
 
-## Методи верифікації (ISO 29148, 6.5.2)
+## Методи та артефакти верифікації (ISO 29148, 6.5.2)
 
-- **Inspection** — огляд документації, конфігурації, наявності поля, формату.
-- **Analysis** — розрахунок, моделювання, симуляція, аналіз логів; proof через модель.
-- **Demonstration** — демонстрація поведінки без детального інструментального тестування; підходить для статистичних вимог.
-- **Test** — контрольований тест у реальних/симульованих умовах із вимірюваним pass/fail результатом.
+- **Inspection** — огляд документації, коду, конфігурації, наявності поля, формату.
+- **Analysis (включно з моделюванням і симуляцією)** — теоретичний розрахунок, FMEA, моделювання, аналіз логів; proof через модель або подібність (similarity).
+- **Demonstration** — демонстрація якісної поведінки без детального вимірювального обладнання; підходить для статистичних вимог і взаємодії оператора.
+- **Test** — контрольований тест у реальних/симульованих умовах із точним вимірюваним pass/fail результатом.
+- **Certification** — підтвердження відповідності третіми сторонами / сертифікаційними органами згідно з галузевими стандартами.
+
+Артефакти трасованості та верифікації:
+- **RTM (Requirements Traceability Matrix)** — двостороння трасованість (джерело/потреба ↔ вимога ↔ елемент архітектури ↔ тест).
+- **VCRM (Verification Cross Reference Matrix)** — фіксація зв'язку кожної вимоги з методом верифікації, рівнем системи та критеріями приймання.
 
 Приклад: `Acceptance criterion: 95% валідних запитів завершуються відповіддю HTTP 201 протягом 2 секунд при навантаженні 100 RPS.` (метод: Test).
+
+## Метрики якості та управління набором вимог (ISO 29148, 6.6.3)
+
+При оцінці набору вимог звертай увагу на такі кількісні показники:
+
+- **TBx designations count** — кількість невирішених `TBD` (To Be Defined), `TBR` (To Be Resolved), `TBS` (To Be Specified). Набір не є повним, поки TBx > 0.
+- **Requirements Volatility** — частота змін вимог (висока волатильність сигналізує про ризик зриву термінів і бюджету).
+- **Verification coverage** — відсоток вимог, що мають призначений метод верифікації (Inspection/Analysis/Demonstration/Test/Certification).
+- **Requirement types balance** — розподіл за типами (функціональні, якісні/НФВ, інтерфейсні, безпекові, експлуатаційні). Відсутність нефункціональних категорій — типова ознака неповноти.
