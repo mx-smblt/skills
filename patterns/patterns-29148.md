@@ -152,7 +152,7 @@ EARS-патерн - визначає логіку застосування ви�
 
 Це базові конструкції, на яких можна побудувати більшість функціональних і нефункціональних патернів.
 
-## 1.3 Як ці конструкції співвідносяться
+## 1.3 Співвідношення конструкцій
 
 | Критерій            | Конструкція 1                                      | Конструкція 2                                     | Конструкція 3                                 |
 |---------------------|----------------------------------------------------|---------------------------------------------------|-----------------------------------------------|
@@ -171,7 +171,7 @@ EARS-патерн - визначає логіку застосування ви�
 Застосовується, коли вимога діє постійно, незалежно від конкретної події або спеціального стану.
 
 Префікс вимоги: `REQ-UBI`  
-Структура: `[Subject] + shall + [Action] + [Object] + [Constraint]`  
+Структура: `[Subject] shall [Action] [Object] [Constraint of Action]`  
 Шаблон EN: `[Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `[Суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
 
@@ -197,7 +197,7 @@ EARS-патерн - визначає логіку застосування ви�
 Застосовується, коли система повинна виконати дію після певної події.
 
 Префікс вимоги: `REQ-EVT`  
-Структура: `[Trigger/Condition] + [Subject] + shall + [Action] + [Object] + [Constraint]`  
+Структура: `[Trigger/Condition] [Subject] shall [Action] [Object] [Constraint of Action]`  
 Шаблон EN: `When [Trigger], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `Коли [подія], [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
 
@@ -225,7 +225,7 @@ EARS-патерн - визначає логіку застосування ви�
 Застосовується, коли вимога діє протягом визначеного стану.
 
 Префікс вимоги: `REQ-STA`  
-Структура: `While [State/Condition], [Subject] shall [Action] [Object] [Constraint]`  
+Структура: `While [State/Condition], [Subject] shall [Action] [Object] [Constraint of Action]`  
 Шаблон EN: `While [State], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `Поки [стан], [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
 
@@ -254,7 +254,7 @@ EARS-патерн - визначає логіку застосування ви�
 Застосовується, коли система повинна реагувати на некоректні дані, помилку, відмову чи іншу небажану ситуацію.
 
 Префікс вимоги: `REQ-ERR`
-Структура: `If [Unwanted Condition], [Subject] shall [Action] [Object] [Constraint]`  
+Структура: `If [Unwanted Condition], [Subject] shall [Action] [Object] [Constraint of Action]`  
 Шаблон EN: `If [Unwanted Condition], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `Якщо [небажана умова], [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
 
@@ -284,7 +284,7 @@ EARS-патерн - визначає логіку застосування ви�
 Застосовується, коли поведінка обов’язкова лише в конфігурації продукту, що включає відповідну функцію.
 
 Префікс вимоги: `REQ-OPT`  
-Структура: `Where [Feature Condition], [Subject] shall [Action] [Object] [Constraint]`  
+Структура: `Where [Feature Condition], [Subject] shall [Action] [Object] [Constraint of Action]`  
 Шаблон EN: `Where [Feature Condition], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA:
 `У разі наявності [функція/компонент/модуль] у конфігурації продукту, [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
@@ -316,7 +316,7 @@ EARS-патерн - визначає логіку застосування ви�
 незалежних обов’язків, їх слід розділити.
 
 Префікс вимоги: `REQ-CPX`  
-Структура: `While [State], when [Trigger], [Subject] shall [Action] [Object] [Constraint]`  
+Структура: `While [State], when [Trigger], [Subject] shall [Action] [Object] [Constraint of Action]`  
 Шаблон EN: `While [State], when [Trigger], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `Поки [стан], коли [подія], [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
 
