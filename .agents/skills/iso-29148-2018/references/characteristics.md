@@ -24,9 +24,9 @@
 Рекомендовані патерни EARS:
 
 - **Ubiquitous:** `[Суб'єкт] повинен [Дія] [Об'єкт] [Обмеження дії]` (англ. `The [Subject] shall [Action] [Object] [Constraint]`)
-- **Event-driven:** `Коли [Умова-подія], [Суб'єкт] повинен [Дія] [Об'єкт] [Обмеження дії]` (англ. `When [Event/Trigger], the [Subject] shall [Action] [Object] [Constraint]`)
+- **Event-driven:** `Коли [Умова-подія], [Суб'єкт] повинен [Дія] [Об'єкт] [Обмеження дії]` (англ. `When [Trigger], the [Subject] shall [Action] [Object] [Constraint]`)
 - **State-driven:** `Поки [Стан/Режим], [Суб'єкт] повинен [Дія] [Об'єкт] [Обмеження дії]` (англ. `While [State], the [Subject] shall [Action] [Object] [Constraint]`)
-- **Unwanted behavior (Error case):** `Якщо [Виняткова ситуація/Помилка], то [Суб'єкт] повинен [Дія] [Об'єкт]` (англ. `If [Error/Condition], then the [Subject] shall [Action] [Object]`)
+- **Unwanted behavior (Error case):** `Якщо [Умова-подія], то [Суб'єкт] повинен [Дія] [Об'єкт]` (англ. `If [Trigger], then the [Subject] shall [Action] [Object]`)
 - **Optional feature:** `У разі наявності [опції/модуля], [Суб'єкт] повинен [Дія] [Об'єкт] [Обмеження дії]` (англ. `Where [Feature is included], the [Subject] shall [Action] [Object] [Constraint]`)
 - **Complex:** `У разі наявності [опції/модуля], поки [Стан/Режим], коли [Умова-подія], [Суб’єкт] повинен/повинна [Дія] [Об'єкт] [Обмеження дії].` (англ. `Where [Feature is included], while [State], when [Trigger], the [Subject] shall [Action] [Object] [Constraint]`)
 
