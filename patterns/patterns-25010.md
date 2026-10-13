@@ -8,10 +8,10 @@
 
 Кожна нефункціональна вимога або вимога до якості повинна зберігати базову нормативну конструкцію:
 
-`[Condition/Trigger/State] + [Subject] + shall + [Action] + [Object] + [Constraint/Value]`
+`[Condition/Trigger/State]` + `[Subject]` + shall + `[Action]` + `[Object]` + `[Constraint/Value]`
 
-- UA: `[Умова/Подія/Стан], [Суб’єкт] повинен/повинна [Дія] [Об’єкт] [Обмеження дії / Кількісне значення].`
-- EN: `[Condition/Trigger/State], [Subject] shall [Action] [Object] [Constraint of Action / Value].`
+- UA: `[Умова/Подія/Стан]`, `[Суб’єкт]` повинен/повинна `[Дія]` `[Об’єкт]` `[Обмеження дії / Кількісне значення]`.`
+- EN: `[Condition/Trigger/State]`, `[Subject]` shall `[Action]` `[Object]` `[Constraint of Action / Value]`.`
 
 > Примітка:
 > Якщо вимога діє безумовно й постійно (патерн EARS Ubiquitous), секція `[Condition]` опускається.
@@ -31,9 +31,9 @@
 Шаблон:
 
 - EN:  
-  `[Subject` shall provide `[a specified set of functions` in accordance with `[source/specification`
+  `[Subject]` shall provide `[a specified set of functions]` in accordance with `[source/specification]`
 - UA:  
-  `[Суб’єкт` повинен підтримувати `[визначений набір функцій` відповідно до `[джерела/специфікації`
+  `[Суб’єкт]` повинен підтримувати `[визначений набір функцій]` відповідно до `[джерела/специфікації]`
 
 Приклад:
 
@@ -49,9 +49,9 @@
 Шаблон:
 
 - EN:  
-  `For [input data], [subject] shall calculate/produce [result] with [accuracy/rule]`
+  For `[input data]`, `[subject]` shall calculate/produce `[result]` with `[accuracy/rule]`
 - UA:  
-  `Для [вхідних даних] [суб’єкт] повинен обчислювати/формувати [результат] із [точністю/правилом]`
+  Для `[вхідних даних]` `[суб’єкт]` повинен обчислювати/формувати `[результат]` із `[точністю/правилом]`
 
 Приклад:
 
@@ -67,9 +67,11 @@
 Шаблон:
 
 - EN:  
-  `To perform [task], [subject] shall provide [a function] that enables [result] according to [criterion/constraint]`
+  To perform `[task]`, `[subject]` shall provide `[a function]` that enables `[result]` according to
+  `[criterion/constraint]`
 - UA:  
-  `Для виконання [завдання] [суб’єкт] повинен надавати [функцію], що дає змогу отримати [результат] за [критерієм/обмеженням]`
+  Для виконання `[завдання]` `[суб’єкт]` повинен надавати `[функцію]`, що дає змогу отримати `[результат]` за
+  `[критерієм/обмеженням]`
 
 Приклад:
 
@@ -89,9 +91,10 @@
 Шаблон:
 
 - EN:  
-  `Under [load conditions], [subject] shall perform [operation] within [time/duration] for [fraction of operations]`
+  Under `[load conditions]`, `[subject]` shall perform `[operation]` within `[time/duration]` for
+  `[fraction of operations]`
 - UA:  
-  `За [умов навантаження] [суб’єкт] повинен виконувати [операцію] протягом [часу/періоду] для [частки операцій]`
+  За `[умов навантаження]` `[суб’єкт]` повинен виконувати `[операцію]` протягом `[часу/періоду]` для `[частки операцій]`
 
 Приклад:
 
@@ -107,9 +110,9 @@
 Шаблон:
 
 - EN:  
-  `Under [load conditions], [subject] shall use [resource] within [limit/quota]`
+  Under `[load conditions]`, `[subject]` shall use `[resource]` within `[limit/quota]`
 - UA:  
-  `За [умов навантаження] [суб’єкт] повинен використовувати [ресурс] у межах [ліміту/квоти]`
+  За `[умов навантаження]` `[суб’єкт]` повинен використовувати `[ресурс]` у межах `[ліміту/квоти]`
 
 Приклад:
 
@@ -125,9 +128,9 @@
 Шаблон:
 
 - EN:  
-  `[Subject] shall process/store [quantity] [objects or transactions] under [conditions]`
+  `[Subject]` shall process/store `[quantity]` `[objects or transactions]` under `[conditions]`
 - UA:  
-  `[Суб’єкт] повинен обробляти/зберігати [кількість] [об’єктів або транзакцій] за [умов]`
+  `[Суб’єкт]` повинен обробляти/зберігати `[кількість]` `[об’єктів або транзакцій]` за `[умов]`
 
 Приклад:
 
@@ -146,9 +149,11 @@
 Шаблон:
 
 - EN:  
-  `When sharing [environment/resource] with [other systems], [subject] shall perform its functions without [adverse impact on other systems] within [limit]`
+  When sharing `[environment/resource]` with `[other systems]`, `[subject]` shall perform its functions without
+  `[adverse impact on other systems]` within `[limit]`
 - UA:  
-  `Під час спільного використання [середовища/ресурсу] з [іншими системами] [суб’єкт] повинен виконувати свої функції без [негативного впливу на інші системи] у межах [ліміту]`
+  Під час спільного використання `[середовища/ресурсу]` з `[іншими системами]` `[суб’єкт]` повинен виконувати свої
+  функції без `[негативного впливу на інші системи]` у межах `[ліміту]`
 
 Приклад:
 
@@ -164,9 +169,11 @@
 Шаблон:
 
 - EN:  
-  `When exchanging data with [external system], [subject] shall transmit/process [object/message] in accordance with [specification/protocol]`
+  When exchanging data with `[external system]`, `[subject]` shall transmit/process `[object/message]` in accordance
+  with `[specification/protocol]`
 - UA:  
-  `Під час обміну даними з [зовнішньою системою] [суб’єкт] повинен передавати/обробляти [об’єкт/повідомлення] відповідно до [специфікації/протоколу]`
+  Під час обміну даними з `[зовнішньою системою]` `[суб’єкт]` повинен передавати/обробляти `[об’єкт/повідомлення]`
+  відповідно до `[специфікації/протоколу]`
 
 Приклад:
 
@@ -187,9 +194,11 @@
 Шаблон:
 
 - EN:  
-  `In [context], the [subject] interface shall provide [elements/information] sufficient for users to recognize[fitness for needs] within [time]`
+  In `[context]`, the `[subject]` interface shall provide `[elements/information]` sufficient for users to recognize
+  `[fitness for needs]` within `[time]`
 - UA:  
-  `У [контексті] інтерфейс [суб’єкта] повинен надавати [елементи/інформацію], достатні для того, щоб користувач визначив [відповідність системи своїм потребам] протягом [часу]`
+  У `[контексті]` інтерфейс `[суб’єкта]` повинен надавати `[елементи/інформацію]`, достатні для того, щоб користувач
+  визначив `[відповідність системи своїм потребам]` протягом `[часу]`
 
 Приклад:
 
@@ -205,9 +214,11 @@
 Шаблон:
 
 - EN:  
-  `A user of category [user role] shall be able to learn how to perform [task] within no more than [time] after [training/walkthrough]`
+  A user of category `[user role]` shall be able to learn how to perform `[task]` within no more than `[time]` after
+  `[training/walkthrough]`
 - UA:  
-  `Користувач категорії [тип користувача] повинен мати змогу навчитися виконувати [завдання] за час не більше ніж [період] після [навчання/інструктажу]`
+  Користувач категорії `[тип користувача]` повинен мати змогу навчитися виконувати `[завдання]` за час не більше ніж
+  `[період]` після `[навчання/інструктажу]`
 
 Приклад:
 
@@ -223,9 +234,11 @@
 Шаблон:
 
 - EN:  
-  `During [task], the [subject] interface shall allow the user to [control process steps, undo, or pause action] without [data loss]`
+  During `[task]`, the `[subject]` interface shall allow the user to `[control process steps, undo, or pause action]`
+  without `[data loss]`
 - UA:  
-  `Під час виконання [завдання] інтерфейс [суб’єкта] повинен дозволяти користувачеві [керувати кроками процесу, скасовувати або призупиняти дію] без [втрати даних]`
+  Під час виконання `[завдання]` інтерфейс `[суб’єкта]` повинен дозволяти користувачеві
+  `[керувати кроками процесу, скасовувати або призупиняти дію]` без `[втрати даних]`
 
 Приклад:
 
@@ -241,9 +254,11 @@
 Шаблон:
 
 - EN:  
-  `If [user action could cause an error or data loss], [subject] shall [warn about consequences / require explicit confirmation] before [executing operation]`
+  If `[user action could cause an error or data loss]`, `[subject]` shall
+  `[warn about consequences / require explicit confirmation]` before `[executing operation]`
 - UA:  
-  `Якщо [дія користувача може спричинити помилку або втрату даних], [суб’єкт] повинен [попередити про наслідки/вимагати явного підтвердження] перед [виконанням операції]`
+  Якщо `[дія користувача може спричинити помилку або втрату даних]`, `[суб’єкт]` повинен
+  `[попередити про наслідки/вимагати явного підтвердження]` перед `[виконанням операції]`
 
 Приклад:
 
@@ -259,9 +274,11 @@
 Шаблон:
 
 - EN:  
-  `During [system interaction], the [subject] interface shall provide [visual brand alignment / interactive feedback] with a satisfaction rating of at least [value]`
+  During `[system interaction]`, the `[subject]` interface shall provide
+  `[visual brand alignment / interactive feedback]` with a satisfaction rating of at least `[value]`
 - UA:  
-  `Під час [роботи з системою] інтерфейс [суб’єкта] повинен забезпечувати [візуальну відповідність бренду/інтерактивний зворотний зв’язок] із показником сприйняття не менше [значення]`
+  Під час `[роботи з системою]` інтерфейс `[суб’єкта]` повинен забезпечувати
+  `[візуальну відповідність бренду/інтерактивний зворотний зв’язок]` із показником сприйняття не менше `[значення]`
 
 Приклад:
 
@@ -277,9 +294,11 @@
 Шаблон:
 
 - EN:  
-  `[Subject] shall provide access to perform [tasks] for users with [physical/cognitive characteristics] in accordance with [accessibility standard]`
+  `[Subject]` shall provide access to perform `[tasks]` for users with `[physical/cognitive characteristics]` in
+  accordance with `[accessibility standard]`
 - UA:  
-  `[Суб’єкт] повинен надавати доступ до виконання [завдань] користувачам із [фізичними/когнітивними особливостями] відповідно до [стандарту доступності]`
+  `[Суб’єкт]` повинен надавати доступ до виконання `[завдань]` користувачам із `[фізичними/когнітивними особливостями]`
+  відповідно до `[стандарту доступності]`
 
 Приклад:
 
@@ -295,9 +314,11 @@
 Шаблон:
 
 - EN:  
-  `When the user [requests help or encounters an error context], [subject] shall display [contextual hints / help instructions] without [exiting the current step]`
+  When the user `[requests help or encounters an error context]`, `[subject]` shall display
+  `[contextual hints / help instructions]` without `[exiting the current step]`
 - UA:  
-  `Коли користувач [запитує довідку або опиняється в контексті помилки], [суб’єкт] повинен відображати [контекстні підказки/довідкові інструкції] без [виходу з поточного кроку]`
+  Коли користувач `[запитує довідку або опиняється в контексті помилки]`, `[суб’єкт]` повинен відображати
+  `[контекстні підказки/довідкові інструкції]` без `[виходу з поточного кроку]`
 
 Приклад:
 
@@ -313,9 +334,12 @@
 Шаблон:
 
 - EN:  
-  `On each screen, the [interface] shall display [current system state, parameter meaning, and available next steps] without [requiring external documentation]`
+  On each screen, the `[interface]` shall display `[current system state, parameter meaning, and available next steps]`
+  without `[requiring external documentation]`
 - UA:  
-  `На кожному екрані [інтерфейс] повинен відображати [поточний стан системи, значення параметрів та доступні подальші кроки] без [потреби звернення до додаткової документації]`
+  На кожному екрані `[інтерфейс]` повинен відображати
+  `[поточний стан системи, значення параметрів та доступні подальші кроки]` без
+  `[потреби звернення до додаткової документації]`
 
 Приклад:
 
@@ -335,9 +359,11 @@
 Шаблон:
 
 - EN:  
-  `Under [specified operating conditions], [subject] shall execute [operations] with a failure rate of no more than [limit/ratio]`
+  Under `[specified operating conditions]`, `[subject]` shall execute `[operations]` with a failure rate of no more than
+  `[limit/ratio]`
 - UA:  
-  `За [визначених умов експлуатації] [суб’єкт] повинен обробляти [операції] з часткою відмов/збоїв не більше ніж [ліміт/коефіцієнт]`
+  За `[визначених умов експлуатації]` `[суб’єкт]` повинен обробляти `[операції]` з часткою відмов/збоїв не більше ніж
+  `[ліміт/коефіцієнт]`
 
 Приклад:
 
@@ -353,9 +379,10 @@
 Шаблон:
 
 - EN:  
-  `During [time period], [subject] shall maintain availability of at least [value %] within [operating schedule]`
+  During `[time period]`, `[subject]` shall maintain availability of at least `[value %]` within `[operating schedule]`
 - UA:  
-  `Протягом [періоду часу] [суб’єкт] повинен забезпечувати коефіцієнт доступності не менше [значення %] у межах [режиму роботи]`
+  Протягом `[періоду часу]` `[суб’єкт]` повинен забезпечувати коефіцієнт доступності не менше `[значення %]` у межах
+  `[режиму роботи]`
 
 Приклад:
 
@@ -371,9 +398,11 @@
 Шаблон:
 
 - EN:  
-  `If [an external service fails / a node crashes], [subject] shall [failover to a replica / enter degraded mode] within [time] without [user-facing errors]`
+  If `[an external service fails / a node crashes]`, `[subject]` shall `[failover to a replica / enter degraded mode]`
+  within `[time]` without `[user-facing errors]`
 - UA:  
-  `Якщо [відбувається збій стороннього сервісу / падіння вузла], [суб’єкт] повинен [перемкнутися на резервний вузол / перейти в деградований режим] протягом [часу] без [помилок для користувачів]`
+  Якщо `[відбувається збій стороннього сервісу / падіння вузла]`, `[суб’єкт]` повинен
+  `[перемкнутися на резервний вузол / перейти в деградований режим]` протягом `[часу]` без `[помилок для користувачів]`
 
 Приклад:
 
@@ -389,9 +418,11 @@
 Шаблон:
 
 - EN:  
-  `Following [crash/incident], [subject] shall restore [service operation and data integrity] within [RTO] with data loss no greater than [RPO]`
+  Following `[crash/incident]`, `[subject]` shall restore `[service operation and data integrity]` within `[RTO]` with
+  data loss no greater than `[RPO]`
 - UA:  
-  `Після [аварійної зупинки/збою] [суб’єкт] повинен відновити [працездатність і цілісність даних] протягом [RTO] із втратою транзакцій не більше [RPO]`
+  Після `[аварійної зупинки/збою]` `[суб’єкт]` повинен відновити `[працездатність і цілісність даних]` протягом `[RTO]`
+  із втратою транзакцій не більше `[RPO]`
 
 Приклад:
 
@@ -411,9 +442,11 @@
 Шаблон:
 
 - EN:  
-  `[Subject] shall grant access to [classified data] exclusively to [authorized roles/actors] in accordance with [access control policy]`
+  `[Subject]` shall grant access to `[classified data]` exclusively to `[authorized roles/actors]` in accordance with
+  `[access control policy]`
 - UA:  
-  `[Суб’єкт] повинен надавати доступ до [класифікованих даних] виключно [авторизованим ролям/суб’єктам] відповідно до [політики доступу]`
+  `[Суб’єкт]` повинен надавати доступ до `[класифікованих даних]` виключно `[авторизованим ролям/суб’єктам]` відповідно
+  до `[політики доступу]`
 
 Приклад:
 
@@ -429,9 +462,11 @@
 Шаблон:
 
 - EN:  
-  `[Subject] shall protect [data/messages] against unauthorized modification during [storage/transit] using [cryptographic algorithm / checksum]`
+  `[Subject]` shall protect `[data/messages]` against unauthorized modification during `[storage/transit]` using
+  `[cryptographic algorithm / checksum]`
 - UA:  
-  `[Суб’єкт] повинен забезпечувати захист [даних/повідомлень] від несанкціонованої модифікації під час [зберігання/передавання] за допомогою [криптографічного алгоритму/контрольної суми]`
+  `[Суб’єкт]` повинен забезпечувати захист `[даних/повідомлень]` від несанкціонованої модифікації під час
+  `[зберігання/передавання]` за допомогою `[криптографічного алгоритму/контрольної суми]`
 
 Приклад:
 
@@ -447,9 +482,11 @@
 Шаблон:
 
 - EN:  
-  `When [executing transaction], [subject] shall generate and store [verifiable audit evidence] associating [the action with user identity and timestamp]`
+  When `[executing transaction]`, `[subject]` shall generate and store `[verifiable audit evidence]` associating
+  `[the action with user identity and timestamp]`
 - UA:  
-  `Під час [виконання операції/транзакції] [суб’єкт] повинен створювати та зберігати [юридично значущі цифрові докази], що однозначно прив’язують [дію до ідентифікатора користувача та мітки часу]`
+  Під час `[виконання операції/транзакції]` `[суб’єкт]` повинен створювати та зберігати
+  `[юридично значущі цифрові докази]`, що однозначно прив’язують `[дію до ідентифікатора користувача та мітки часу]`
 
 Приклад:
 
@@ -465,9 +502,11 @@
 Шаблон:
 
 - EN:  
-  `For every [security event / critical data change], [subject] shall record [mandatory audit fields] into [an immutable audit log]`
+  For every `[security event / critical data change]`, `[subject]` shall record `[mandatory audit fields]` into
+  `[an immutable audit log]`
 - UA:  
-  `Для кожної [події безпеки / зміни критичних даних] [суб’єкт] повинен записувати [перелік обов'язкових полів аудиту] до [незмінного журналу подій]`
+  Для кожної `[події безпеки / зміни критичних даних]` `[суб’єкт]` повинен записувати
+  `[перелік обов'язкових полів аудиту]` до `[незмінного журналу подій]`
 
 Приклад:
 
@@ -483,9 +522,11 @@
 Шаблон:
 
 - EN:  
-  `Prior to executing [protected action / API access], [subject] shall verify [requester authenticity / certificate] using [authentication mechanism]`
+  Prior to executing `[protected action / API access]`, `[subject]` shall verify
+  `[requester authenticity / certificate]` using `[authentication mechanism]`
 - UA:  
-  `Перед виконанням [захищеної дії / доступу до API] [суб’єкт] повинен перевіряти [автентичність запитувача / сертифікат] за допомогою [механізму автентифікації]`
+  Перед виконанням `[захищеної дії / доступу до API]` `[суб’єкт]` повинен перевіряти
+  `[автентичність запитувача / сертифікат]` за допомогою `[механізму автентифікації]`
 
 Приклад:
 
@@ -501,9 +542,11 @@
 Шаблон:
 
 - EN:  
-  `Under [threat profile / specified attack vector], [subject] shall withstand [intrusion attempts / attacks] and maintain [operational integrity] in compliance with [security standard]`
+  Under `[threat profile / specified attack vector]`, `[subject]` shall withstand `[intrusion attempts / attacks]` and
+  maintain `[operational integrity]` in compliance with `[security standard]`
 - UA:  
-  `За умов [профілю кіберзагроз / атаки визначеного типу] [суб’єкт] повинен блокувати [спроби вторгнення/атаки] та підтримувати [цілісність функціонування] відповідно до [стандарту безпеки]`
+  За умов `[профілю кіберзагроз / атаки визначеного типу]` `[суб’єкт]` повинен блокувати `[спроби вторгнення/атаки]` та
+  підтримувати `[цілісність функціонування]` відповідно до `[стандарту безпеки]`
 
 Приклад:
 
@@ -524,9 +567,11 @@
 Шаблон:
 
 - EN:  
-  `[Subject] shall isolate [business domain/module] such that modifying its internal logic requires no [changes to adjacent modules] while adhering to [public API contract]`
+  `[Subject]` shall isolate `[business domain/module]` such that modifying its internal logic requires no
+  `[changes to adjacent modules]` while adhering to `[public API contract]`
 - UA:  
-  `[Суб’єкт] повинен інкапсулювати [бізнес-домен/модуль] так, щоб зміна його внутрішньої логіки не вимагала [змін у суміжних модулях] за умови дотримання [публічного контракту]`
+  `[Суб’єкт]` повинен інкапсулювати `[бізнес-домен/модуль]` так, щоб зміна його внутрішньої логіки не вимагала
+  `[змін у суміжних модулях]` за умови дотримання `[публічного контракту]`
 
 Приклад:
 
@@ -542,9 +587,11 @@
 Шаблон:
 
 - EN:  
-  `[Component] shall expose [functionality] via [standardized interface/SDK] reusable across at least [target systems/projects]`
+  `[Component]` shall expose `[functionality]` via `[standardized interface/SDK]` reusable across at least
+  `[target systems/projects]`
 - UA:  
-  `[Компонент] повинен надавати [функціональність] через [стандартизований інтерфейс/SDK], придатний для повторного використання не менше ніж у [перелік проєктів/систем]`
+  `[Компонент]` повинен надавати `[функціональність]` через `[стандартизований інтерфейс/SDK]`, придатний для повторного
+  використання не менше ніж у `[перелік проєктів/систем]`
 
 Приклад:
 
@@ -560,9 +607,11 @@
 Шаблон:
 
 - EN:  
-  `In the event of [an error condition], [subject] shall log [correlation ID, stack trace, and execution context] enabling root-cause identification within [time/SLO]`
+  In the event of `[an error condition]`, `[subject]` shall log `[correlation ID, stack trace, and execution context]`
+  enabling root-cause identification within `[time/SLO]`
 - UA:  
-  `У разі [виникнення помилки] [суб’єкт] повинен записувати [кореляційний ID, стек виклику та контекст] для локалізації причини збою протягом не більше [часу/SLO]`
+  У разі `[виникнення помилки]` `[суб’єкт]` повинен записувати `[кореляційний ID, стек виклику та контекст]` для
+  локалізації причини збою протягом не більше `[часу/SLO]`
 
 Приклад:
 
@@ -578,9 +627,11 @@
 Шаблон:
 
 - EN:  
-  `[Subject] shall allow modifications to [business rule / configuration] via [configuration file / parameter update] without [recompilation or system downtime]`
+  `[Subject]` shall allow modifications to `[business rule / configuration]` via
+  `[configuration file / parameter update]` without `[recompilation or system downtime]`
 - UA:  
-  `[Суб’єкт] повинен дозволяти зміну [бізнес-правила / конфігурації] шляхом [оновлення конфігураційного файлу / таблиці] без [перекомпіляції та простою системи]`
+  `[Суб’єкт]` повинен дозволяти зміну `[бізнес-правила / конфігурації]` шляхом
+  `[оновлення конфігураційного файлу / таблиці]` без `[перекомпіляції та простою системи]`
 
 Приклад:
 
@@ -596,9 +647,11 @@
 Шаблон:
 
 - EN:  
-  `[Component] shall provide [mocking interfaces / test fixture APIs] that enable automated test coverage of at least [value %] of business logic without connecting to [external dependencies]`
+  `[Component]` shall provide `[mocking interfaces / test fixture APIs]` that enable automated test coverage of at least
+  `[value %]` of business logic without connecting to `[external dependencies]`
 - UA:  
-  `[Компонент] повинен надавати [інтерфейси заглушок / API тестового контролю], що дозволяють покрити автоматизованими тестами не менше [значення %] логіки без підключення до [зовнішніх залежностей]`
+  `[Компонент]` повинен надавати `[інтерфейси заглушок / API тестового контролю]`, що дозволяють покрити
+  автоматизованими тестами не менше `[значення %]` логіки без підключення до `[зовнішніх залежностей]`
 
 Приклад:
 
@@ -619,9 +672,10 @@
 Шаблон:
 
 - EN:  
-  `[Subject] shall operate in [specified OS/browsers/cloud environments] without [source code modification]`
+  `[Subject]` shall operate in `[specified OS/browsers/cloud environments]` without `[source code modification]`
 - UA:  
-  `[Суб’єкт] повинен працювати в [переліку цільових ОС/браузерів/хмарних середовищ] без [модифікації вихідного коду]`
+  `[Суб’єкт]` повинен працювати в `[переліку цільових ОС/браузерів/хмарних середовищ]` без
+  `[модифікації вихідного коду]`
 
 Приклад:
 
@@ -637,9 +691,11 @@
 Шаблон:
 
 - EN:  
-  `When [workload / data volume / user base] increases from [baseline] to [target value], [subject] shall [scale horizontally / increase throughput] while maintaining [latency / SLA thresholds]`
+  When `[workload / data volume / user base]` increases from `[baseline]` to `[target value]`, `[subject]` shall
+  `[scale horizontally / increase throughput]` while maintaining `[latency / SLA thresholds]`
 - UA:  
-  `Під час збільшення [навантаження / обсягу даних / користувачів] з [початкового] до [цільового рівня] [суб’єкт] повинен [горизонтально масштабуватися / нарощувати пропускну здатність], зберігаючи [показники latency/SLA]`
+  Під час збільшення `[навантаження / обсягу даних / користувачів]` з `[початкового]` до `[цільового рівня]` `[суб’єкт]`
+  повинен `[горизонтально масштабуватися / нарощувати пропускну здатність]`, зберігаючи `[показники latency/SLA]`
 
 Приклад:
 
@@ -655,9 +711,11 @@
 Шаблон:
 
 - EN:  
-  `[Subject] shall be successfully installed/deployed into [environment] using [automated script/container] within no more than [time] without [manual intervention]`
+  `[Subject]` shall be successfully installed/deployed into `[environment]` using `[automated script/container]` within
+  no more than `[time]` without `[manual intervention]`
 - UA:  
-  `[Суб’єкт] повинен успішно встановлюватися/розгортатися в [середовищі] за допомогою [автоматизованого скрипту/контейнера] протягом не більше [часу] без [ручного втручання]`
+  `[Суб’єкт]` повинен успішно встановлюватися/розгортатися в `[середовищі]` за допомогою
+  `[автоматизованого скрипту/контейнера]` протягом не більше `[часу]` без `[ручного втручання]`
 
 Приклад:
 
@@ -673,9 +731,11 @@
 Шаблон:
 
 - EN:  
-  `[Subject/component] shall be replaceable with [alternative third-party component/engine] implementing [specified interface] without [modifying remaining application code]`
+  `[Subject/component]` shall be replaceable with `[alternative third-party component/engine]` implementing
+  `[specified interface]` without `[modifying remaining application code]`
 - UA:  
-  `[Суб’єкт/компонент] повинен замінюватися на [аналогічний сторонній компонент/рушій], що реалізує [визначений інтерфейс], без [зміни коду решти системи]`
+  `[Суб’єкт/компонент]` повинен замінюватися на `[аналогічний сторонній компонент/рушій]`, що реалізує
+  `[визначений інтерфейс]`, без `[зміни коду решти системи]`
 
 Приклад:
 
@@ -696,9 +756,11 @@
 Шаблон:
 
 - EN:  
-  `If [system/environmental parameter] exceeds [safe threshold], [subject] shall [restrict function / block operation] to [prevent hazardous state]`
+  If `[system/environmental parameter]` exceeds `[safe threshold]`, `[subject]` shall
+  `[restrict function / block operation]` to `[prevent hazardous state]`
 - UA:  
-  `Якщо [параметр середовища/системи] перевищує [безпечну межу], [суб’єкт] повинен [примусово обмежити функцію / заблокувати операцію], щоб [запобігти аварійній ситуації]`
+  Якщо `[параметр середовища/системи]` перевищує `[безпечну межу]`, `[суб’єкт]` повинен
+  `[примусово обмежити функцію / заблокувати операцію]`, щоб `[запобігти аварійній ситуації]`
 
 Приклад:
 
@@ -714,9 +776,11 @@
 Шаблон:
 
 - EN:  
-  `If [early indications of a hazardous condition occur], [subject] shall [identify risk severity] and [trigger preventive action] within [time]`
+  If `[early indications of a hazardous condition occur]`, `[subject]` shall `[identify risk severity]` and
+  `[trigger preventive action]` within `[time]`
 - UA:  
-  `Якщо [виявлено ранні ознаки небезпечної або аномальної ситуації], [суб’єкт] повинен [ідентифікувати рівень ризику] та [запустити превентивну дію] протягом [часу]`
+  Якщо `[виявлено ранні ознаки небезпечної або аномальної ситуації]`, `[суб’єкт]` повинен
+  `[ідентифікувати рівень ризику]` та `[запустити превентивну дію]` протягом `[часу]`
 
 Приклад:
 
@@ -732,9 +796,11 @@
 Шаблон:
 
 - EN:  
-  `In the event of [critical sensor failure / loss of communication], [subject] shall transition immediately to [a defined safe state] until [manual reset / successful verification]`
+  In the event of `[critical sensor failure / loss of communication]`, `[subject]` shall transition immediately to
+  `[a defined safe state]` until `[manual reset / successful verification]`
 - UA:  
-  `У разі [критичної відмови датчика / втрати зв’язку], [суб’єкт] повинен негайно перейти у [визначений безпечний стан] і підтримувати його до [ручного скидання / відновлення перевірки]`
+  У разі `[критичної відмови датчика / втрати зв’язку]`, `[суб’єкт]` повинен негайно перейти у
+  `[визначений безпечний стан]` і підтримувати його до `[ручного скидання / відновлення перевірки]`
 
 Приклад:
 
@@ -750,9 +816,11 @@
 Шаблон:
 
 - EN:  
-  `When [a hazardous condition is detected], [subject] shall issue [visual/audible warning] to the operator via [channel] within no more than [time]`
+  When `[a hazardous condition is detected]`, `[subject]` shall issue `[visual/audible warning]` to the operator via
+  `[channel]` within no more than `[time]`
 - UA:  
-  `Коли [виявлено небезпечний або передаварійний стан], [суб’єкт] повинен згенерувати [акустичне/візуальне попередження] оператору через [канал зв’язку] протягом не більше [часу]`
+  Коли `[виявлено небезпечний або передаварійний стан]`, `[суб’єкт]` повинен згенерувати
+  `[акустичне/візуальне попередження]` оператору через `[канал зв’язку]` протягом не більше `[часу]`
 
 Приклад:
 
@@ -768,9 +836,11 @@
 Шаблон:
 
 - EN:  
-  `When interfacing with [external actuator / component], [subject] shall verify [safety interlocks and state conditions] prior to dispatching [control command]`
+  When interfacing with `[external actuator / component]`, `[subject]` shall verify
+  `[safety interlocks and state conditions]` prior to dispatching `[control command]`
 - UA:  
-  `Під час взаємодії з [зовнішнім виконавчим механізмом / компонентом] [суб’єкт] повинен перевіряти [умови безпеки та блокування] перед передачею [керуючої команди]`
+  Під час взаємодії з `[зовнішнім виконавчим механізмом / компонентом]` `[суб’єкт]` повинен перевіряти
+  `[умови безпеки та блокування]` перед передачею `[керуючої команди]`
 
 Приклад:
 
