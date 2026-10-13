@@ -28,7 +28,7 @@
 
 ### Шаблони формулювання
 
-| Підхарактеристика          | Структура шаблону UA                                                                                                                  | Template EN                                                                                                                  |
+| Підхарактеристика          | Структура шаблону UA                                                                                                                  | Структура шаблону EN                                                                                                         |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Functional completeness    | `[Суб’єкт]` повинен підтримувати `[визначений набір функцій]` відповідно до `[джерела/специфікації]`.                                 | `[Subject]` shall provide `[a specified set of functions]` in accordance with `[source/specification]`.                      |
 | Functional correctness     | Для `[вхідних даних]` `[суб’єкт]` повинен обчислювати/формувати `[результат]` із `[точністю/правилом]`.                               | For `[input data]`, `[subject]` shall calculate/produce `[result]` with `[accuracy/rule]`.                                   |
@@ -36,21 +36,26 @@
 
 ### Приклади вимог
 
-- Functional completeness:
-    * UA: Сервіс замовлень повинен забезпечувати повний життєвий цикл обробки замовлення (створення, оплата,
-      резервування, відвантаження, скасування) відповідно до Специфікації бізнес-процесу v2.1.
-    * EN: The Order Service shall provide the complete order lifecycle management (creation, payment, reservation,
-      fulfillment, cancellation) in accordance with Business Process Specification v2.1.
-- Functional correctness:
-    * UA: Для замовлення у валюті EUR сервіс розрахунків повинен обчислювати суму ПДВ за ставкою країни покупця з
-      точністю до 0,01 EUR за методом банківського округлення.
-    * EN: For an order denominated in EUR, the Calculation Service shall calculate VAT using the buyer country rate to a
-      precision of EUR 0.01 using round-half-to-even rules.
-- Functional appropriateness:
-    * UA: Для завершення оформлення покупки сервіс оформлення замовлень повинен надавати функцію експрес-оплати, яка
-      дозволяє оформити замовлення не більше ніж за два кліки без повторного введення платіжних даних.
-    * EN: To complete a checkout, the Checkout Service shall provide an express payment feature that enables order
-      completion within no more than two clicks without re-entering payment credentials.
+#### Functional completeness:
+
+- EN: The Order Service shall provide the complete order lifecycle management (creation, payment, reservation,
+  fulfillment, cancellation) in accordance with Business Process Specification v2.1.
+- UA: Сервіс замовлень повинен забезпечувати повний життєвий цикл обробки замовлення (створення, оплата, резервування,
+  відвантаження, скасування) відповідно до Специфікації бізнес-процесу v2.1.
+
+#### Functional correctness:
+
+- EN: For an order denominated in EUR, the Calculation Service shall calculate VAT using the buyer country rate to a
+  precision of EUR 0.01 using round-half-to-even rules.
+- UA: Для замовлення у валюті EUR сервіс розрахунків повинен обчислювати суму ПДВ за ставкою країни покупця з точністю
+  до 0,01 EUR за методом банківського округлення.
+
+#### Functional appropriateness:
+
+- EN: To complete a checkout, the Checkout Service shall provide an express payment feature that enables order
+  completion within no more than two clicks without re-entering payment credentials.
+- UA: Для завершення оформлення покупки сервіс оформлення замовлень повинен надавати функцію експрес-оплати, яка
+  дозволяє оформити замовлення не більше ніж за два кліки без повторного введення платіжних даних.
 
 ## 2. Performance efficiency — Ефективність продуктивності
 
@@ -58,7 +63,7 @@
 
 ### Шаблони формулювання
 
-| Підхарактеристика    | Структура шаблону UA                                                                                                    | Template EN                                                                                                                 |
+| Підхарактеристика    | Структура шаблону UA                                                                                                    | Структура шаблону EN                                                                                                        |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | Time behaviour       | За `[умов навантаження]` `[суб’єкт]` повинен виконувати `[операцію]` протягом `[часу/періоду]` для `[частки операцій]`. | Under `[load conditions]`, `[subject]` shall perform `[operation]` within `[time/duration]` for `[fraction of operations]`. |
 | Resource utilization | За `[умов навантаження]` `[суб’єкт]` повинен використовувати `[ресурс]` у межах `[ліміту/квоти]`.                       | Under `[load conditions]`, `[subject]` shall use `[resource]` within `[limit/quota]`.                                       |
@@ -66,21 +71,26 @@
 
 ### Приклади вимог
 
-- Time behaviour:
-    * UA: За навантаження 200 запитів за секунду API каталогів повинен повертати результат пошуку товарів із 95-м
-      процентилем часу відповіді не більше 250 мс.
-    * EN: Under a load of 200 requests per second, the Catalog API shall return product search results with a
-      95th-percentile response time of no more than 250 ms.
-- Resource utilization:
-    * UA: За пікового навантаження до 1000 активних сесій споживання оперативної пам’яті контейнером сервісу авторизації
-      не повинно перевищувати 1024 МБ.
-    * EN: Under a peak load of up to 1,000 active sessions, the Authorization Service container shall utilize no more
-      than 1024 MB of RAM.
-- Capacity:
-    * UA: База даних замовлень повинна зберігати не менше 50 000 000 архівних записів замовлень зі збереженням швидкості
-      читання за індексом.
-    * EN: The Order Database shall store at least 50,000,000 archived order records while maintaining index read
-      performance.
+#### Time behaviour:
+
+- EN: Under a load of 200 requests per second, the Catalog API shall return product search results with a
+  95th-percentile response time of no more than 250 ms.
+- UA: За навантаження 200 запитів за секунду API каталогів повинен повертати результат пошуку товарів із 95-м
+  процентилем часу відповіді не більше 250 мс.
+
+#### Resource utilization:
+
+- EN: Under a peak load of up to 1,000 active sessions, the Authorization Service container shall utilize no more than
+  1024 MB of RAM.
+- UA: За пікового навантаження до 1000 активних сесій споживання оперативної пам’яті контейнером сервісу авторизації не
+  повинно перевищувати 1024 МБ.
+
+#### Capacity:
+
+- EN: The Order Database shall store at least 50,000,000 archived order records while maintaining index read
+  performance.
+- UA: База даних замовлень повинна зберігати не менше 50 000 000 архівних записів замовлень зі збереженням швидкості
+  читання за індексом.
 
 ## 3. Compatibility — Сумісність
 
@@ -88,23 +98,26 @@
 
 ### Шаблони формулювання
 
-| Підхарактеристика | Структура шаблону UA                                                                                                                                                                    | Template EN                                                                                                                                                         |
+| Підхарактеристика | Структура шаблону UA                                                                                                                                                                    | Структура шаблону EN                                                                                                                                                |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Co-existence      | Під час спільного використання `[середовища/ресурсу]` з `[іншими системами]` `[суб’єкт]` повинен виконувати свої функції без `[негативного впливу на інші системи]` у межах `[ліміту]`. | When sharing `[environment/resource]` with `[other systems]`, `[subject]` shall perform its functions without `[adverse impact on other systems]` within `[limit]`. |
 | Interoperability  | Під час обміну даними з `[зовнішньою системою]` `[суб’єкт]` повинен передавати/обробляти `[об’єкт/повідомлення]` відповідно до `[специфікації/протоколу]`.                              | When exchanging data with `[external system]`, `[subject]` shall transmit/process `[object/message]` in accordance with `[specification/protocol]`.                 |
 
 ### Приклади вимог
 
-- Co-existence:
-    * UA: Працюючи на спільному хості з сервісом аналітики, фоновий генератор звітів повинен обмежувати використання
-      процесора до максимум 20 % виділеного пулу ядер, не викликаючи деградації продуктивності сусідніх процесів.
-    * EN: While sharing a host with the Analytics Service, the Background Report Generator shall limit CPU usage to a
-      maximum of 20% of the assigned core pool without causing performance degradation of adjacent processes.
-- Interoperability:
-    * UA: Під час передавання платіжних повідомлень до банку-екваєра сервіс платежів повинен формувати та валідувати
-      повідомлення відповідно до стандарту ISO 20022 camt.053.
-    * EN: When transmitting payment messages to the acquiring bank, the Payment Service shall generate and validate
-      messages in accordance with the ISO 20022 camt.053 standard.
+#### Co-existence:
+
+- EN: While sharing a host with the Analytics Service, the Background Report Generator shall limit CPU usage to a
+  maximum of 20% of the assigned core pool without causing performance degradation of adjacent processes.
+- UA: Працюючи на спільному хості з сервісом аналітики, фоновий генератор звітів повинен обмежувати використання
+  процесора до максимум 20 % виділеного пулу ядер, не викликаючи деградації продуктивності сусідніх процесів.
+
+#### Interoperability:
+
+- EN: When transmitting payment messages to the acquiring bank, the Payment Service shall generate and validate messages
+  in accordance with the ISO 20022 camt.053 standard.
+- UA: Під час передавання платіжних повідомлень до банку-екваєра сервіс платежів повинен формувати та валідувати
+  повідомлення відповідно до стандарту ISO 20022 camt.053.
 
 ## 4. Interaction capability — Здатність до взаємодії
 
@@ -113,7 +126,7 @@
 
 ### Шаблони формулювання
 
-| Підхарактеристика               | Структура шаблону UA                                                                                                                                                                          | Template EN                                                                                                                                                                |
+| Підхарактеристика               | Структура шаблону UA                                                                                                                                                                          | Структура шаблону EN                                                                                                                                                       |
 |---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Appropriateness recognizability | У `[контексті]` інтерфейс `[суб’єкта]` повинен надавати `[елементи/інформацію]`, достатні для того, щоб користувач визначив `[відповідність системи своїм потребам]` протягом `[часу]`.       | In `[context]`, the `[subject]` interface shall provide `[elements/information]` sufficient for users to recognize `[fitness for needs]` within `[time]`.                  |
 | Learnability                    | Користувач категорії `[тип користувача]` повинен мати змогу навчитися виконувати `[завдання]` за час не більше ніж `[період]` після `[навчання/інструктажу]`.                                 | A user of category `[user role]` shall be able to learn how to perform `[task]` within no more than `[time]` after `[training/walkthrough]`.                               |
@@ -126,46 +139,61 @@
 
 ### Приклади вимог
 
-- Appropriateness recognizability:
-    * UA: На головній сторінці веб-порталу публічний інтерфейс повинен відображати перелік підтримуваних платіжних
-      шлюзів і комісій, щоб новий відвідувач міг оцінити тарифні умови протягом перших 10 секунд перегляду.
-    * EN: On the landing page, the public web portal shall present the list of supported payment gateways and fees,
-      enabling a new visitor to determine tariff suitability within 10 seconds of viewing.
-- Learnability:
-    * UA: Оператор кол-центру без попереднього досвіду повинен успішно реєструвати звернення клієнта менш ніж за 3
-      хвилини після перегляду 15-хвилинного навчального відео.
-    * EN: A call center operator without prior experience shall successfully register a customer ticket in under 3
-      minutes after completing a 15-minute onboarding video.
-- Operability:
-    * UA: Під час заповнення багатосторінкової форми заявки інтерфейс користувача повинен дозволяти вільну навігацію між
-      збереженими кроками назад і вперед без втрати раніше введених даних.
-    * EN: During the multi-step application form flow, the user interface shall permit bidirectional navigation across
-      completed steps without discarding previously entered data.
-- User error protection:
-    * UA: Перед остаточним видаленням облікового запису користувача вебінтерфейс повинен вимагати введення поточного
-      пароля та підтвердження дії у діалоговому вікні.
-    * EN: Before final deletion of a user account, the web interface shall require current password entry and explicit
-      action confirmation in a modal dialogue.
-- User engagement:
-    * UA: Під час виконання навчального сценарію мобільний застосунок повинен відображати візуальний індикатор прогресу
-      та інтерактивні анімації завершення кроку відповідно до затвердженого брендбуку.
-    * EN: During an onboarding flow, the mobile application shall present a visual progress tracker and interactive
-      completion animations conforming to the approved design styleguide.
-- Inclusivity:
-    * UA: Вебінтерфейс особистого кабінету повинен забезпечувати підтримку навігації за допомогою клавіатури та
-      сумісність із програмами зчитування екрана відповідно до стандарту WCAG 2.2 рівня AA.
-    * EN: The user account web interface shall support full keyboard navigation and screen reader compatibility
-      conforming to WCAG 2.2 Level AA.
-- User assistance:
-    * UA: Коли користувач фокусується на полі введення податкового номера, форма повинна відображати спливаючу підказку
-      з прикладом валідного формату для обраної країни.
-    * EN: When the user focuses on the Tax ID input field, the form shall display an inline tooltip showing an example
-      of the valid format for the selected country.
-- Self-descriptiveness:
-    * UA: Під час імпорту файлу даних таблиця попереднього перегляду повинна маркувати статус кожного стовпця
-      (розпізнано, конфлікт, пропущено) та пояснювати значення розпізнаних типів даних.
-    * EN: During data file import, the preview table shall label each column status (matched, conflict, skipped) and
-      describe the recognized data type format.
+#### Appropriateness recognizability:
+
+- EN: On the landing page, the public web portal shall present the list of supported payment gateways and fees, enabling
+  a new visitor to determine tariff suitability within 10 seconds of viewing.
+- UA: На головній сторінці веб-порталу публічний інтерфейс повинен відображати перелік підтримуваних платіжних шлюзів і
+  комісій, щоб новий відвідувач міг оцінити тарифні умови протягом перших 10 секунд перегляду.
+
+#### Learnability:
+
+- EN: A call center operator without prior experience shall successfully register a customer ticket in under 3 minutes
+  after completing a 15-minute onboarding video.
+- UA: Оператор кол-центру без попереднього досвіду повинен успішно реєструвати звернення клієнта менш ніж за 3 хвилини
+  після перегляду 15-хвилинного навчального відео.
+
+#### Operability:
+
+- EN: During the multi-step application form flow, the user interface shall permit bidirectional navigation across
+  completed steps without discarding previously entered data.
+- UA: Під час заповнення багатосторінкової форми заявки інтерфейс користувача повинен дозволяти вільну навігацію між
+  збереженими кроками назад і вперед без втрати раніше введених даних.
+
+#### User error protection:
+
+- EN: Before final deletion of a user account, the web interface shall require current password entry and explicit
+  action confirmation in a modal dialogue.
+- UA: Перед остаточним видаленням облікового запису користувача вебінтерфейс повинен вимагати введення поточного пароля
+  та підтвердження дії у діалоговому вікні.
+
+#### User engagement:
+
+- EN: During an onboarding flow, the mobile application shall present a visual progress tracker and interactive
+  completion animations conforming to the approved design styleguide.
+- UA: Під час виконання навчального сценарію мобільний застосунок повинен відображати візуальний індикатор прогресу та
+  інтерактивні анімації завершення кроку відповідно до затвердженого брендбуку.
+
+#### Inclusivity:
+
+- EN: The user account web interface shall support full keyboard navigation and screen reader compatibility conforming
+  to WCAG 2.2 Level AA.
+- UA: Вебінтерфейс особистого кабінету повинен забезпечувати підтримку навігації за допомогою клавіатури та сумісність
+  із програмами зчитування екрана відповідно до стандарту WCAG 2.2 рівня AA.
+
+#### User assistance:
+
+- EN: When the user focuses on the Tax ID input field, the form shall display an inline tooltip showing an example of
+  the valid format for the selected country.
+- UA: Коли користувач фокусується на полі введення податкового номера, форма повинна відображати спливаючу підказку з
+  прикладом валідного формату для обраної країни.
+
+#### Self-descriptiveness:
+
+- EN: During data file import, the preview table shall label each column status (matched, conflict, skipped) and
+  describe the recognized data type format.
+- UA: Під час імпорту файлу даних таблиця попереднього перегляду повинна маркувати статус кожного стовпця (розпізнано,
+  конфлікт, пропущено) та пояснювати значення розпізнаних типів даних.
 
 ## 5. Reliability — Надійність
 
@@ -173,7 +201,7 @@
 
 ### Шаблони формулювання
 
-| Підхарактеристика | Структура шаблону UA                                                                                                                                                                                       | Template EN                                                                                                                                                          |
+| Підхарактеристика | Структура шаблону UA                                                                                                                                                                                       | Структура шаблону EN                                                                                                                                                 |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Faultlessness     | За `[визначених умов експлуатації]` `[суб’єкт]` повинен обробляти `[операції]` з часткою відмов/збоїв не більше ніж `[ліміт/коефіцієнт]`.                                                                  | Under `[specified operating conditions]`, `[subject]` shall execute `[operations]` with a failure rate of no more than `[limit/ratio]`.                              |
 | Availability      | Протягом `[періоду часу]` `[суб’єкт]` повинен забезпечувати коефіцієнт доступності не менше `[значення %]` у межах `[режиму роботи]`.                                                                      | During `[time period]`, `[subject]` shall maintain availability of at least `[value %]` within `[operating schedule]`.                                               |
@@ -182,27 +210,33 @@
 
 ### Приклади вимог
 
-- Faultlessness:
-    * UA: За умов нормального навантаження до 50 запитів/с сервіс генерації PDF-рахунків повинен виконувати генерацію
-      документів із часткою внутрішніх помилок не більше 0,05 % від загальної кількості запитів на місяць.
-    * EN: Under normal load conditions up to 50 req/s, the Invoice PDF Service shall generate documents with an
-      internal failure rate not exceeding 0.05% of total monthly requests.
-- Availability:
-    * UA: Протягом календарного місяця сервіс онлайн-платежів повинен забезпечувати доступність на рівні не менше
-      99,95 % у режимі 24/7, за винятком погоджених регламентних робіт.
-    * EN: Over any calendar month, the Online Payment Service shall maintain availability of at least 99.95% on a 24/7
-      basis, excluding pre-agreed maintenance windows.
-- Fault tolerance:
-    * UA: Якщо основний шлюз SMS-повідомлень перестає відповідати, модуль нотифікацій повинен автоматично
-      переспрямувати чергу повідомлень на резервного провайдера протягом не більше 5 секунд без відхилення запитів
-      клієнтів.
-    * EN: If the primary SMS gateway becomes unresponsive, the Notification Module shall automatically route the
-      message queue to the backup provider within 5 seconds without dropping client requests.
-- Recoverability:
-    * UA: Після аварійного збою вузла СУБД кластер бази даних повинен відновити обробку транзакцій запису протягом не
-      більше 15 хвилин (RTO) із втратою зафіксованих даних не більше 1 хвилини (RPO).
-    * EN: Following a database node failure, the database cluster shall resume write transaction processing within 15
-      minutes (RTO) with committed data loss no greater than 1 minute (RPO).
+#### Faultlessness:
+
+- EN: Under normal load conditions up to 50 req/s, the Invoice PDF Service shall generate documents with an internal
+  failure rate not exceeding 0.05% of total monthly requests.
+- UA: За умов нормального навантаження до 50 запитів/с сервіс генерації PDF-рахунків повинен виконувати генерацію
+  документів із часткою внутрішніх помилок не більше 0,05 % від загальної кількості запитів на місяць.
+
+#### Availability:
+
+- EN: Over any calendar month, the Online Payment Service shall maintain availability of at least 99.95% on a 24/7
+  basis, excluding pre-agreed maintenance windows.
+- UA: Протягом календарного місяця сервіс онлайн-платежів повинен забезпечувати доступність на рівні не менше 99,95 % у
+  режимі 24/7, за винятком погоджених регламентних робіт.
+
+#### Fault tolerance:
+
+- EN: If the primary SMS gateway becomes unresponsive, the Notification Module shall automatically route the message
+  queue to the backup provider within 5 seconds without dropping client requests.
+- UA: Якщо основний шлюз SMS-повідомлень перестає відповідати, модуль нотифікацій повинен автоматично переспрямувати
+  чергу повідомлень на резервного провайдера протягом не більше 5 секунд без відхилення запитів клієнтів.
+
+#### Recoverability:
+
+- EN: Following a database node failure, the database cluster shall resume write transaction processing within 15
+  minutes (RTO) with committed data loss no greater than 1 minute (RPO).
+- UA: Після аварійного збою вузла СУБД кластер бази даних повинен відновити обробку транзакцій запису протягом не більше
+  15 хвилин (RTO) із втратою зафіксованих даних не більше 1 хвилини (RPO).
 
 ## 6. Security — Захищеність
 
@@ -210,7 +244,7 @@
 
 ### Шаблони формулювання
 
-| Підхарактеристика | Структура шаблону UA                                                                                                                                                                                      | Template EN                                                                                                                                                                                       |
+| Підхарактеристика | Структура шаблону UA                                                                                                                                                                                      | Структура шаблону EN                                                                                                                                                                              |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Confidentiality   | `[Суб’єкт]` повинен надавати доступ до `[класифікованих даних]` виключно `[авторизованим ролям/суб’єктам]` відповідно до `[політики доступу]`.                                                            | `[Subject]` shall grant access to `[classified data]` exclusively to `[authorized roles/actors]` in accordance with `[access control policy]`.                                                    |
 | Integrity         | `[Суб’єкт]` повинен забезпечувати захист `[даних/повідомлень]` від несанкціонованої модифікації під час `[зберігання/передавання]` за допомогою `[криптографічного алгоритму/контрольної суми]`.          | `[Subject]` shall protect `[data/messages]` against unauthorized modification during `[storage/transit]` using `[cryptographic algorithm / checksum]`.                                            |
@@ -221,36 +255,47 @@
 
 ### Приклади вимог
 
-- Confidentiality:
-    * UA: Сервіс медичних карток повинен шифрувати персональні медичні дані пацієнтів у стані спокою (at rest) з
-      використанням алгоритму AES-256 і надавати доступ до розшифрованих даних лише призначеному лікареві пацієнта.
-    * EN: The Medical Records Service shall encrypt patient personal health data at rest using AES-256 and grant
-      decrypted access solely to the patient's assigned medical practitioner.
-- Integrity:
-    * UA: Під час передавання фінансових реєстрів сервіс клірингу повинен підписувати пакети даних за стандартом
-      HMAC-SHA256 та відхиляти пакети з порушеною контрольною сумою.
-    * EN: When transmitting financial settlement files, the Clearing Service shall sign payloads using HMAC-SHA256 and
-      reject any payload failing checksum validation.
-- Non-repudiation:
-    * UA: Під час підписання кредитної угоди сервіс підписів повинен фіксувати кваліфікований електронний підпис
-      клієнта разом із міткою часу TSP, унеможливлюючи відмову від факту укладення правочину.
-    * EN: When a loan contract is signed, the Signature Service shall persist the client's qualified electronic
-      signature alongside a trusted TSP timestamp, preventing repudiation of the agreement.
-- Accountability:
-    * UA: Для кожної спроби зміни прав доступу користувачів підсистема безпеки повинна реєструвати в журналі подій
-      ідентифікатор адміністратора, IP-адресу, старе значення, нове значення та точний час у форматі UTC.
-    * EN: For every user privilege modification attempt, the Security Subsystem shall record the administrator ID,
-      source IP address, previous value, updated value, and UTC timestamp in the audit log.
-- Authenticity:
-    * UA: Перед наданням доступу до адміністративної консолі сервіс ідентифікації повинен вимагати успішне проходження
-      двофакторної автентифікації (MFA) через апаратний FIDO2-токен або TOTP.
-    * EN: Prior to granting access to the administrative console, the Identity Service shall require successful
-      two-factor authentication (MFA) via a hardware FIDO2 token or TOTP.
-- Resistance:
-    * UA: За умов розподіленої атаки типу «відмова в обслуговуванні» (DDoS) потужністю до 10 Гбіт/с граничний шлюз API
-      повинен фільтрувати шкідливий трафік, забезпечуючи доступність сервісу для легітимних клієнтів.
-    * EN: Under a distributed denial-of-service (DDoS) attack up to 10 Gbps, the API Edge Gateway shall mitigate
-      malicious traffic and maintain availability for legitimate clients.
+#### Confidentiality:
+
+- EN: The Medical Records Service shall encrypt patient personal health data at rest using AES-256 and grant decrypted
+  access solely to the patient's assigned medical practitioner.
+- UA: Сервіс медичних карток повинен шифрувати персональні медичні дані пацієнтів у стані спокою (at rest) з
+  використанням алгоритму AES-256 і надавати доступ до розшифрованих даних лише призначеному лікареві пацієнта.
+
+#### Integrity:
+
+- EN: When transmitting financial settlement files, the Clearing Service shall sign payloads using HMAC-SHA256 and
+  reject any payload failing checksum validation.
+- UA: Під час передавання фінансових реєстрів сервіс клірингу повинен підписувати пакети даних за стандартом HMAC-SHA256
+  та відхиляти пакети з порушеною контрольною сумою.
+
+#### Non-repudiation:
+
+- EN: When a loan contract is signed, the Signature Service shall persist the client's qualified electronic signature
+  alongside a trusted TSP timestamp, preventing repudiation of the agreement.
+- UA: Під час підписання кредитної угоди сервіс підписів повинен фіксувати кваліфікований електронний підпис клієнта
+  разом із міткою часу TSP, унеможливлюючи відмову від факту укладення правочину.
+
+#### Accountability:
+
+- EN: For every user privilege modification attempt, the Security Subsystem shall record the administrator ID, source IP
+  address, previous value, updated value, and UTC timestamp in the audit log.
+- UA: Для кожної спроби зміни прав доступу користувачів підсистема безпеки повинна реєструвати в журналі подій
+  ідентифікатор адміністратора, IP-адресу, старе значення, нове значення та точний час у форматі UTC.
+
+#### Authenticity:
+
+- EN: Prior to granting access to the administrative console, the Identity Service shall require successful two-factor
+  authentication (MFA) via a hardware FIDO2 token or TOTP.
+- UA: Перед наданням доступу до адміністративної консолі сервіс ідентифікації повинен вимагати успішне проходження
+  двофакторної автентифікації (MFA) через апаратний FIDO2-токен або TOTP.
+
+#### Resistance:
+
+- EN: Under a distributed denial-of-service (DDoS) attack up to 10 Gbps, the API Edge Gateway shall mitigate malicious
+  traffic and maintain availability for legitimate clients.
+- UA: За умов розподіленої атаки типу «відмова в обслуговуванні» (DDoS) потужністю до 10 Гбіт/с граничний шлюз API
+  повинен фільтрувати шкідливий трафік, забезпечуючи доступність сервісу для легітимних клієнтів.
 
 ## 7. Maintainability — Супроводжуваність
 
@@ -259,7 +304,7 @@
 
 ### Шаблони формулювання
 
-| Підхарактеристика | Структура шаблону UA                                                                                                                                                                                         | Template EN                                                                                                                                                                                           |
+| Підхарактеристика | Структура шаблону UA                                                                                                                                                                                         | Структура шаблону EN                                                                                                                                                                                  |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Modularity        | `[Суб’єкт]` повинен інкапсулювати `[бізнес-домен/модуль]` так, щоб зміна його внутрішньої логіки не вимагала `[змін у суміжних модулях]` за умови дотримання `[публічного контракту]`.                       | `[Subject]` shall isolate `[business domain/module]` such that modifying its internal logic requires no `[changes to adjacent modules]` while adhering to `[public API contract]`.                    |
 | Reusability       | `[Компонент]` повинен надавати `[функціональність]` через `[стандартизований інтерфейс/SDK]`, придатний для повторного використання не менше ніж у `[перелік проєктів/систем]`.                              | `[Component]` shall expose `[functionality]` via `[standardized interface/SDK]` reusable across at least `[target systems/projects]`.                                                                 |
@@ -269,31 +314,40 @@
 
 ### Приклади вимог
 
-- Modularity:
-    * UA: Модуль розрахунку доставки повинен бути реалізований як окремий мікросервіс, зміна внутрішніх алгоритмів
-      якого не вимагає змін у кодовій базі сервісу замовлень.
-    * EN: The Delivery Calculation Module shall be isolated as an independent microservice whose internal algorithm
-      updates require no changes to the Order Service codebase.
-- Reusability:
-    * UA: Бібліотека форматування валют і дат повинна надаватися у вигляді npm-пакета, придатного для повторного
-      використання в усіх клієнтських веб-додатках платформи без додаткових модифікацій.
-    * EN: The Currency and Date Formatting Library shall be published as an npm package reusable across all platform
-      client web applications without source modification.
-- Analysability:
-    * UA: У разі падіння запиту HTTP 5xx API шлюз повинен повертати клієнту та фіксувати в журналі унікальний
-      correlation ID, що дозволяє інженеру підтримки знайти повний лог виклику менш ніж за 2 хвилини.
-    * EN: In the event of an HTTP 5xx error, the API Gateway shall issue and log a unique correlation ID enabling
-      support engineers to locate the complete call trace in under 2 minutes.
-- Modifiability:
-    * UA: Сервіс розсилок повинен дозволяти зміну шаблонів сповіщень через панель адміністрування без зупинки
-      екземплярів сервісу та без розгортання нового бінарного релізу.
-    * EN: The Notification Service shall allow template modifications via the administration dashboard without
-      restarting service instances or deploying a new application build.
-- Testability:
-    * UA: Шлюз інтеграції з банком повинен підтримувати режим симуляції (mock/sandbox), що дозволяє симулювати всі
-      позитивні й негативні коди банківських відповідей у середовищі CI/CD.
-    * EN: The Bank Integration Gateway shall support a mock/sandbox operating mode enabling simulation of all
-      successful and error response codes within the automated CI/CD pipeline.
+#### Modularity:
+
+- EN: The Delivery Calculation Module shall be isolated as an independent microservice whose internal algorithm updates
+  require no changes to the Order Service codebase.
+- UA: Модуль розрахунку доставки повинен бути реалізований як окремий мікросервіс, зміна внутрішніх алгоритмів якого не
+  вимагає змін у кодовій базі сервісу замовлень.
+
+#### Reusability:
+
+- EN: The Currency and Date Formatting Library shall be published as an npm package reusable across all platform client
+  web applications without source modification.
+- UA: Бібліотека форматування валют і дат повинна надаватися у вигляді npm-пакета, придатного для повторного
+  використання в усіх клієнтських веб-додатках платформи без додаткових модифікацій.
+
+#### Analysability:
+
+- EN: In the event of an HTTP 5xx error, the API Gateway shall issue and log a unique correlation ID enabling support
+  engineers to locate the complete call trace in under 2 minutes.
+- UA: У разі падіння запиту HTTP 5xx API шлюз повинен повертати клієнту та фіксувати в журналі унікальний correlation
+  ID, що дозволяє інженеру підтримки знайти повний лог виклику менш ніж за 2 хвилини.
+
+#### Modifiability:
+
+- EN: The Notification Service shall allow template modifications via the administration dashboard without restarting
+  service instances or deploying a new application build.
+- UA: Сервіс розсилок повинен дозволяти зміну шаблонів сповіщень через панель адміністрування без зупинки екземплярів
+  сервісу та без розгортання нового бінарного релізу.
+
+#### Testability:
+
+- EN: The Bank Integration Gateway shall support a mock/sandbox operating mode enabling simulation of all successful and
+  error response codes within the automated CI/CD pipeline.
+- UA: Шлюз інтеграції з банком повинен підтримувати режим симуляції (mock/sandbox), що дозволяє симулювати всі позитивні
+  й негативні коди банківських відповідей у середовищі CI/CD.
 
 ## 8. Flexibility — Гнучкість
 
@@ -302,7 +356,7 @@
 
 ### Шаблони формулювання
 
-| Підхарактеристика | Структура шаблону UA                                                                                                                                                                                                                    | Template EN                                                                                                                                                                                                 |
+| Підхарактеристика | Структура шаблону UA                                                                                                                                                                                                                    | Структура шаблону EN                                                                                                                                                                                        |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Adaptability      | `[Суб’єкт]` повинен працювати в `[переліку цільових ОС/браузерів/хмарних середовищ]` без `[модифікації вихідного коду]`.                                                                                                                | `[Subject]` shall operate in `[specified OS/browsers/cloud environments]` without `[source code modification]`.                                                                                             |
 | Scalability       | Під час збільшення `[навантаження / обсягу даних / користувачів]` з `[початкового]` до `[цільового рівня]` `[суб’єкт]` повинен `[горизонтально масштабуватися / нарощувати пропускну здатність]`, зберігаючи `[показники latency/SLA]`. | When `[workload / data volume / user base]` increases from `[baseline]` to `[target value]`, `[subject]` shall `[scale horizontally / increase throughput]` while maintaining `[latency / SLA thresholds]`. |
@@ -311,26 +365,33 @@
 
 ### Приклади вимог
 
-- Adaptability:
-    * UA: Сервіс черг повідомлень повинен функціонувати в операційних системах Ubuntu Linux 22.04 LTS та Alpine Linux
-      3.18 без зміни бінарного пакета.
-    * EN: The Message Queue Service shall run on both Ubuntu Linux 22.04 LTS and Alpine Linux 3.18 operating systems
-      without binary re-compilation.
-- Scalability:
-    * UA: Під час зростання кількості одночасних замовлень від 1 000 до 10 000 на хвилину сервіс замовлень повинен
-      автоматично збільшувати кількість реплік подовженням черги, утримуючи середній час обробки замовлення до 500 мс.
-    * EN: When the concurrent order arrival rate expands from 1,000 to 10,000 orders per minute, the Order Service
-      shall scale horizontally to maintain average order processing latency below 500 ms.
-- Installability:
-    * UA: Базовий образ клієнтського застосунку повинен автоматично розгортатися у кластері Kubernetes за допомогою
-      Helm-чарту менш ніж за 3 хвилини з перевіркою readiness probe.
-    * EN: The client application container shall be automatically deployed to the Kubernetes cluster via Helm chart
-      within 3 minutes with valid readiness probe confirmation.
-- Replaceability:
-    * UA: Модуль кешування повинен підтримувати заміну рушія Redis на AWS ElastiCache шляхом оновлення змінних
-      конфігурації підключення без зміни кодової бази клієнта.
-    * EN: The Caching Module shall support replacing local Redis with AWS ElastiCache by updating connection strings
-      without altering application source code.
+#### Adaptability:
+
+- EN: The Message Queue Service shall run on both Ubuntu Linux 22.04 LTS and Alpine Linux 3.18 operating systems without
+  binary re-compilation.
+- UA: Сервіс черг повідомлень повинен функціонувати в операційних системах Ubuntu Linux 22.04 LTS та Alpine Linux 3.18
+  без зміни бінарного пакета.
+
+#### Scalability:
+
+- EN: When the concurrent order arrival rate expands from 1,000 to 10,000 orders per minute, the Order Service shall
+  scale horizontally to maintain average order processing latency below 500 ms.
+- UA: Під час зростання кількості одночасних замовлень від 1 000 до 10 000 на хвилину сервіс замовлень повинен
+  автоматично збільшувати кількість реплік подовженням черги, утримуючи середній час обробки замовлення до 500 мс.
+
+#### Installability:
+
+- EN: The client application container shall be automatically deployed to the Kubernetes cluster via Helm chart within 3
+  minutes with valid readiness probe confirmation.
+- UA: Базовий образ клієнтського застосунку повинен автоматично розгортатися у кластері Kubernetes за допомогою
+  Helm-чарту менш ніж за 3 хвилини з перевіркою readiness probe.
+
+#### Replaceability:
+
+- EN: The Caching Module shall support replacing local Redis with AWS ElastiCache by updating connection strings without
+  altering application source code.
+- UA: Модуль кешування повинен підтримувати заміну рушія Redis на AWS ElastiCache шляхом оновлення змінних конфігурації
+  підключення без зміни кодової бази клієнта.
 
 ## 9. Safety — Функціональна безпека
 
@@ -339,7 +400,7 @@
 
 ### Шаблони формулювання
 
-| Підхарактеристика      | Структура шаблону UA                                                                                                                                                                            | Template EN                                                                                                                                                                                 |
+| Підхарактеристика      | Структура шаблону UA                                                                                                                                                                            | Структура шаблону EN                                                                                                                                                                        |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Operational constraint | Якщо `[параметр середовища/системи]` перевищує `[безпечну межу]`, `[суб’єкт]` повинен `[примусово обмежити функцію / заблокувати операцію]`, щоб `[запобігти аварійній ситуації]`.              | If `[system/environmental parameter]` exceeds `[safe threshold]`, `[subject]` shall `[restrict function / block operation]` to `[prevent hazardous state]`.                                 |
 | Risk identification    | Якщо `[виявлено ранні ознаки небезпечної або аномальної ситуації]`, `[суб’єкт]` повинен `[ідентифікувати рівень ризику]` та `[запустити превентивну дію]` протягом `[часу]`.                    | If `[early indications of a hazardous condition occur]`, `[subject]` shall `[identify risk severity]` and `[trigger preventive action]` within `[time]`.                                    |
@@ -349,75 +410,38 @@
 
 ### Приклади вимог
 
-- Operational constraint:
-    * UA: Якщо внутрішня температура сервера перевищує 75 °C, модуль терморегуляції повинен знизити тактову частоту
-      процесора на 50 % і заблокувати запуск нових фонових завдань.
-    * EN: If the server temperature exceeds 75 °C, the Thermal Management Module shall throttle CPU frequency by 50%
-      and prohibit spawning new background processes.
-- Risk identification:
-    * UA: Якщо датчик вібрації фіксує повторюване відхилення амплітуди понад 15 % від нормального профілю протягом 10
-      секунд, система контролю повинна класифікувати стан як передвідмовний ризик та зареєструвати інцидент першого
-      пріоритету.
-    * EN: If vibration sensors detect repeated amplitude deviations exceeding 15% from baseline for 10 consecutive
-      seconds, the Monitoring System shall classify the condition as a pre-failure risk and log a priority-1 incident.
-- Fail safe:
-    * UA: У разі втрати сигналу зв’язку з пультом дистанційного керування понад 500 мс контролер приводу маніпулятора
-      повинен знеструмити мотори та зафіксувати механічні гальма.
-    * EN: In the event of lost signal from the remote controller exceeding 500 ms, the Manipulator Actuator Controller
-      shall de-energize the drive motors and engage mechanical brakes.
-- Hazard warning:
-    * UA: Коли концентрація чадного газу в приміщенні перевищує 50 ppm, блок моніторингу повинен увімкнути звукову
-      сигналізацію гучністю не менше 85 дБ і надіслати SMS-сповіщення черговій службі протягом 2 секунд.
-    * EN: When the indoor carbon monoxide concentration exceeds 50 ppm, the Monitoring Unit shall sound an audible
-      alarm of at least 85 dB and dispatch an SMS alert to emergency services within 2 seconds.
-- Safe integration:
-    * UA: Перед надсиланням команди відкриття шлюзу підсистема управління повинна перевірити підтверджений статус
-      вимкнення тиску в суміжній камері.
-    * EN: Prior to sending an airlock release command, the Control Subsystem shall verify confirmed zero-pressure
-      status in the adjacent chamber.
+#### Operational constraint:
 
-## 10. Додаткові атрибути вимоги
+- EN: If the server temperature exceeds 75 °C, the Thermal Management Module shall throttle CPU frequency by 50% and
+  prohibit spawning new background processes.
+- UA: Якщо внутрішня температура сервера перевищує 75 °C, модуль терморегуляції повинен знизити тактову частоту
+  процесора на 50 % і заблокувати запуск нових фонових завдань.
 
-Для забезпечення повної простежуваності та верифікації за ISO/IEC/IEEE 29148 нормативне речення вимоги супроводжується
-метаданими:
+#### Risk identification:
 
-| Поле                  | English                  | Обов’язковість                                     | Призначення                                                                                                                          |
-|-----------------------|--------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| Ідентифікатор         | `Requirement ID`         | Обов’язкове                                        | Унікально ідентифікує вимогу (наприклад, `REQ-SEC-001`).                                                                             |
-| Тип                   | `Type`                   | Рекомендоване                                      | Тип вимоги.                                                                                                                          |
-| Джерело               | `Source`                 | Рекомендоване                                      | Визначає походження вимоги. Зацікавлена сторона, стандарт, бізнес-правило чи нормативний документ.                                   |
-| Обґрунтування         | `Rationale`              | Рекомендоване                                      | Пояснює, навіщо потрібна вимога. Бізнес- або технічна причина потреби в цій вимозі.                                                  |
-| Метод верифікації     | `Verification Method`    | Рекомендоване                                      | Визначає, як перевірятиметься виконання. Тестування (Test), Демонстрація (Demonstration), Інспекція (Inspection), Аналіз (Analysis). |
-| Критерії приймання    | `Acceptance Criteria`    | Для вимог, що потребують формалізованого приймання | Визначають умови успішної перевірки. Чіткі перевірювані умови готовності та проходження приймання.                                   |
-| Батьківська вимога    | `Parent Requirement`     | Якщо вимога похідна                                | Забезпечує простежуваність (трасування) до вимоги вищого рівня.                                                                      |
-| Характеристика якості | `Quality Characteristic` | Якщо застосовна                                    | Пов’язує вимогу з ISO/IEC 25010:2023 (характеристика → підхарактеристика).                                                           |
-| EARS                  | `EARS Pattern`           | Рекомендоване                                      | Тип формулювання: Ubiquitous, Event-driven, State-driven, Unwanted behaviour, Complex.                                               |
+- EN: If vibration sensors detect repeated amplitude deviations exceeding 15% from baseline for 10 consecutive seconds,
+  the Monitoring System shall classify the condition as a pre-failure risk and log a priority-1 incident.
+- UA: Якщо датчик вібрації фіксує повторюване відхилення амплітуди понад 15 % від нормального профілю протягом 10
+  секунд, система контролю повинна класифікувати стан як передвідмовний ризик та зареєструвати інцидент першого
+  пріоритету.
 
-### Приклад оформлення вимоги до якості з повною специфікацією атрибутів
+#### Fail safe:
 
-- Requirement ID: `REQ-SEC-AUTH-002`
-- Type: `Quality Requirement`
-- EARS: `Unwanted behaviour`
-- Quality Characteristic: `Security → Resistance`
-- Формулювання вимоги: Якщо API аутентифікації фіксує понад 5 невдалих спроб введення пароля для одного
-  облікового запису протягом 60 секунд, сервіс безпеки повинен тимчасово заблокувати можливість входу для цього
-  облікового запису на 15 хвилин та надіслати власнику повідомлення про підозрілу активність.
+- EN: In the event of lost signal from the remote controller exceeding 500 ms, the Manipulator Actuator Controller shall
+  de-energize the drive motors and engage mechanical brakes.
+- UA: У разі втрати сигналу зв’язку з пультом дистанційного керування понад 500 мс контролер приводу маніпулятора
+  повинен знеструмити мотори та зафіксувати механічні гальма.
 
-#### Структурний розбір:
+#### Hazard warning:
 
-- Condition (Unwanted Condition): Якщо API аутентифікації фіксує понад 5 невдалих спроб введення пароля протягом 60
-  секунд.
-- Subject: Сервіс безпеки (The Security Service).
-- Action: повинен заблокувати та надіслати (shall lock and dispatch).
-- Object: можливість входу для облікового запису та сповіщення власнику.
-- Constraint / Value: блокування на 15 хвилин; ліміт 5 спроб за 60 секунд.
+- EN: When the indoor carbon monoxide concentration exceeds 50 ppm, the Monitoring Unit shall sound an audible alarm of
+  at least 85 dB and dispatch an SMS alert to emergency services within 2 seconds.
+- UA: Коли концентрація чадного газу в приміщенні перевищує 50 ppm, блок моніторингу повинен увімкнути звукову
+  сигналізацію гучністю не менше 85 дБ і надіслати SMS-сповіщення черговій службі протягом 2 секунд.
 
-#### Метадані верифікації:
+#### Safe integration:
 
-- Rationale: Захистити облікові записи користувачів від атак методом підбору паролів (brute-force).
-- Verification Method: Тестування (Automated Security / Integration Testing).
-- Acceptance Criteria:
-    1. Після 5-ї некоректної спроби поспіль повертається статус HTTP 429 з інформацією про блокування.
-    2. 6-а спроба протягом 15 хвилин відхиляється навіть у разі передачі валідного пароля.
-    3. На контактний email користувача надходить лист про блокування із зазначенням часу та IP-адреси.
-    4. Після завершення 15-хвилинного інтервалу вхід за правильним паролем відновлюється автоматично.
+- EN: Prior to sending an airlock release command, the Control Subsystem shall verify confirmed zero-pressure status in
+  the adjacent chamber.
+- UA: Перед надсиланням команди відкриття шлюзу підсистема управління повинна перевірити підтверджений статус вимкнення
+  тиску в суміжній камері.

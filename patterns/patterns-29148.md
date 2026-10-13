@@ -26,6 +26,44 @@ EARS-патерн - визначає логіку застосування ви�
 > Condition, Trigger, State, Response, Constraint та Value - корисні елементи робочої моделі патернів. Їх не слід
 > трактувати як обов’язковий набір полів, що має бути присутнім у кожному реченні за ISO/IEC/IEEE 29148
 
+
+Перелік допустимих модальних слів:
+
+- `shall` - використовується для формулювання обов'язкових для виконання вимог (mandatory binding provisions). Це
+  основне модальне слово для фіксації системних та програмних вимог  
+  Відповідник українсько: повинен / повинна / повинно / повинні  
+  Приклад:
+    - EN: The payment gateway **shall** encrypt all credit card numbers using AES-256 before storing them in the
+      database.
+    - UA: Платіжний шлюз **повинен** шифрувати всі номери кредитних карток за алгоритмом AES-256 перед збереженням у
+      базу даних.
+
+- `will` - використовується для тверджень про факти, майбутні події або оголошення мети (statements of fact, futurity,
+  declaration of purpose). Це необов'язкові положення (non-binding provisions), які застосовуються для опису контексту
+  або умов використання  
+  Відповідник українсько: Дієслово у формі майбутнього часу - буде/будуть  
+  Приклад:
+    - EN: The external bank API **will** return a transaction status code within 3.0 seconds under normal network
+      conditions.
+    - UA: Зовнішній банківський API **надаватиме** код статусу транзакції протягом 3,0 секунд за нормальних мережевих
+      умов.
+
+- `should` - використовується для опису вподобань або цілей (preferences or goals). Вони описують бажані, але
+  необов'язкові положення (non-binding provisions) і не вважаються вимогами  
+  Відповідник українсько: рекомендується/рекомендують, слід, бажано.  
+  Приклад:
+    - EN: The system **should** notify the user via SMS if an abnormal transaction pattern is detected.
+    - UA: Системі **слід** повідомляти користувача через SMS у разі виявлення аномальної структури транзакцій.
+
+- `may` - використовується для висловлення пропозицій або дозволів (suggestions or allowances), які є необов'язковими
+  положеннями  
+  Відповідник українсько: може / можуть, дозволяється, допускається  
+  Приклад:
+    - EN: The system administrator **may** bypass the multi-factor authentication step when accessing the system via a
+      secure, hardwired maintenance terminal.
+    - UA: Системний адміністратор **може** пропустити етап багатофакторної автентифікації під час доступу через
+      захищений кабельний термінал технічного обслуговування.
+
 ## 1.2 Основні конструкції
 
 ### Конструкція 1
@@ -35,13 +73,17 @@ EARS-патерн - визначає логіку застосування ви�
 Використовується, коли необхідно визначити умову застосування вимоги, відповідального суб’єкта, його дію, об’єкт і
 обмеження виконання.
 
-UA: `Коли [Умова], [Суб’єкт] повинен [Дія] [Об’єкт] [Обмеження дії].`
-EN: `When [Condition], [Subject] shall [Action] [Object] [Constraint of Action].`
+Шаблон:
+
+- EN: `When [Condition], [Subject] shall [Action] [Object] [Constraint of Action].`
+- UA: `Коли [Умова], [Суб’єкт] повинен [Дія] [Об’єкт] [Обмеження дії].`
 
 Приклад:
 
-- UA: `Коли користувач підтверджує замовлення, сервіс замовлень повинен створити запис замовлення протягом 2 секунд.`
-- EN: `When a user confirms an order, the Order Service shall create an order record within 2 seconds.`
+- EN:
+  When a user confirms an order, the Order Service shall create an order record within 2 seconds.
+- UA:
+  Коли користувач підтверджує замовлення, сервіс замовлень повинен створити запис замовлення протягом 2 секунд.
 
 | Елемент              | Значення                                                     |
 |----------------------|--------------------------------------------------------------|
@@ -60,15 +102,18 @@ EN: `When [Condition], [Subject] shall [Action] [Object] [Constraint of Action].
 Ця конструкція фокусується на певній дії або обмеженні та конкретному значенні. Вона може бути доречною, коли значення
 характеристики або параметра є центральною частиною вимоги.
 
-UA: `За умови [Умова] [Дія або обмеження] повинно відповідати значенню [Значення].`
-EN: `Under [Condition], [Action or Constraint] shall meet [Value].`
+Шаблон:
+
+- EN: `Under [Condition], [Action or Constraint] shall meet [Value].`
+- UA: `За умови [Умова] [Дія або обмеження] повинно відповідати значенню [Значення].`
 
 Приклад:
 
-- UA:
-  `За навантаження 100 запитів за секунду 95-й процентиль часу відповіді API замовлень повинен бути не більше 300 мс.`
 - EN:
-  `Under a load of 100 requests per second, the 95th-percentile response time of the Order API shall be no greater than 300 ms.`
+  Under a load of 100 requests per second, the Order API shall respond to requests with a 95th-percentile latency of no
+  greater than 300 ms.
+- UA:
+  За навантаження 100 запитів за секунду 95-й процентиль часу відповіді API замовлень повинен бути не більше 300 мс.
 
 | Елемент              | Значення                                                                                          |
 |----------------------|---------------------------------------------------------------------------------------------------|
@@ -85,13 +130,17 @@ EN: `Under [Condition], [Action or Constraint] shall meet [Value].`
 
 Ця конструкція підходить для вимог, у яких суб’єкт виконує дію, що безпосередньо пов’язана з конкретним значенням.
 
-UA: `[Суб’єкт] повинен [Дія] зі значенням [Значення].`
-EN: `[Subject] shall [Action] [Value].`
+Шаблон:
+
+- EN: `[Subject] shall [Action] [Value].`
+- UA: `[Суб’єкт] повинен [Дія] зі значенням [Значення].`
 
 Приклад:
 
-- UA: `Сервіс замовлень повинен зберігати не менше 10 мільйонів записів замовлень.`
-- EN: `The Order Service shall store at least 10 million order records.`
+- EN:
+  The Order Service shall store at least 10 million order records.
+- UA:
+  Сервіс замовлень повинен зберігати не менше 10 мільйонів записів замовлень.
 
 | Елемент | Значення                                                                    |
 |---------|-----------------------------------------------------------------------------|
@@ -121,21 +170,22 @@ EN: `[Subject] shall [Action] [Value].`
 
 Застосовується, коли вимога діє постійно, незалежно від конкретної події або спеціального стану.
 
-Префікс вимоги: `REQ-UBI`
-Структура: `[Subject] + shall + [Action] + [Object] + [Constraint]`
+Префікс вимоги: `REQ-UBI`  
+Структура: `[Subject] + shall + [Action] + [Object] + [Constraint]`  
+Шаблон EN: `[Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `[Суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
-Template EN: `[Subject] shall [Action] [Object] [Constraint of Action].`
 
-Приклад UA:
-`REQ-UBI-001. Сервіс замовлень повинен зберігати дату створення кожного замовлення в UTC.`
+Приклад:
 
-Example EN:
-`REQ-UBI-001. The Order Service shall store the creation timestamp of each order in UTC.`
+- EN:
+  REQ-UBI-001. The Order Service shall store the creation timestamp of each order in UTC.
+- UA:
+  REQ-UBI-001. Сервіс замовлень повинен зберігати дату створення кожного замовлення в UTC.
 
-Структура прикладу
+Структура прикладу:
 
 - Subject: The Order Service
-- Action: shall store
+- Action: store
 - Object: the creation timestamp of each order
 - Constraint: in UTC
 
@@ -146,22 +196,24 @@ Example EN:
 
 Застосовується, коли система повинна виконати дію після певної події.
 
-Префікс вимоги: `REQ-EVT`
-Структура: `[Trigger/Condition] + [Subject] + shall + [Action] + [Object] + [Constraint]`
+Префікс вимоги: `REQ-EVT`  
+Структура: `[Trigger/Condition] + [Subject] + shall + [Action] + [Object] + [Constraint]`  
+Шаблон EN: `When [Trigger], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `Коли [подія], [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
-Template EN: `When [Trigger], [Subject] shall [Action] [Object] [Constraint of Action].`
 
-Приклад UA
-`REQ-EVT-001. Коли користувач підтверджує замовлення, сервіс замовлень повинен створити запис замовлення протягом 2 секунд.`
+Приклад:
 
-Example EN
-`REQ-EVT-001. When a user confirms an order, the Order Service shall create an order record within 2 seconds.`
+- EN:
+  REQ-EVT-001. When a user confirms an order, the Order Service shall create an order record within 2 seconds.
+- UA:
+  REQ-EVT-001. Коли користувач підтверджує замовлення, сервіс замовлень повинен створити запис замовлення протягом 2
+  секунд.
 
-Структура прикладу
+Структура прикладу:
 
 - Condition/Trigger: When a user confirms an order
 - Subject: the Order Service
-- Action: shall create
+- Action: create
 - Object: an order record
 - Constraint: within 2 seconds
 
@@ -172,22 +224,26 @@ Example EN
 
 Застосовується, коли вимога діє протягом визначеного стану.
 
-Префікс вимоги: `REQ-STA`
-Структура: `While [State/Condition], [Subject] shall [Action] [Object] [Constraint]`
+Префікс вимоги: `REQ-STA`  
+Структура: `While [State/Condition], [Subject] shall [Action] [Object] [Constraint]`  
+Шаблон EN: `While [State], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `Поки [стан], [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
-Template EN: `While [State], [Subject] shall [Action] [Object] [Constraint of Action].`
 
-Приклад UA
-`REQ-STA-001. Поки платіж перебуває у стані Pending, сервіс платежів повинен відхиляти повторні команди підтвердження цього платежу.`
+Приклад:
 
-Example EN
-`REQ-STA-001. While a payment is in the Pending state, the Payment Service shall reject duplicate confirmation commands for that payment.`
+- EU:
+  REQ-STA-001. While a payment is in the Pending state, the Payment Service shall reject duplicate confirmation commands
+  for that payment.
 
-Структура прикладу
+- UA:
+  REQ-STA-001. Поки платіж перебуває у стані Pending, сервіс платежів повинен відхиляти повторні команди підтвердження
+  цього платежу.
+
+Структура прикладу:
 
 - Condition/State: While a payment is in the Pending state
 - Subject: the Payment Service
-- Action: shall reject
+- Action: reject
 - Object: duplicate confirmation commands for that payment
 - Constraint: commands are duplicates for the same payment
 
@@ -198,21 +254,25 @@ Example EN
 Застосовується, коли система повинна реагувати на некоректні дані, помилку, відмову чи іншу небажану ситуацію.
 
 Префікс вимоги: `REQ-ERR`
-Структура: `If [Unwanted Condition], [Subject] shall [Action] [Object] [Constraint]`
+Структура: `If [Unwanted Condition], [Subject] shall [Action] [Object] [Constraint]`  
+Шаблон EN: `If [Unwanted Condition], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `Якщо [небажана умова], [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
-Template EN: `If [Unwanted Condition], [Subject] shall [Action] [Object] [Constraint of Action]`.`
 
-Приклад UA:
-`REQ-ERR-001. Якщо запит містить некоректний ідентифікатор замовлення, API замовлень повинен повернути HTTP 400 і код помилки INVALID_ORDER_ID.`
+Приклад:
 
-Example EN:
-`REQ-ERR-001. If a request contains an invalid order identifier, the Order API shall return HTTP 400 and the error code INVALID_ORDER_ID.`
+- EN:
+  REQ-ERR-001. If a request contains an invalid order identifier, the Order API shall return HTTP 400 and the error code
+  INVALID_ORDER_ID.
 
-Структура прикладу
+- UA:
+  REQ-ERR-001. Якщо запит містить некоректний ідентифікатор замовлення, API замовлень повинен повернути HTTP 400 і код
+  помилки INVALID_ORDER_ID.
+
+Структура прикладу:
 
 - Condition: If a request contains an invalid order identifier
 - Subject: the Order API
-- Action: shall return
+- Action: return
 - Object: HTTP 400 and the error code INVALID_ORDER_ID
 - Constraint: the response uses the defined error contract
 
@@ -223,23 +283,27 @@ Example EN:
 
 Застосовується, коли поведінка обов’язкова лише в конфігурації продукту, що включає відповідну функцію.
 
-Префікс вимоги: `REQ-OPT`
-Структура: `Where [Feature Condition], [Subject] shall [Action] [Object] [Constraint]`
+Префікс вимоги: `REQ-OPT`  
+Структура: `Where [Feature Condition], [Subject] shall [Action] [Object] [Constraint]`  
+Шаблон EN: `Where [Feature Condition], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA:
-`Якщо [функцію включено до продукту або конфігурації], [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
-Template EN: `Where [Feature Condition], [Subject] shall [Action] [Object] [Constraint of Action].`
+`У разі наявності [функція/компонент/модуль] у конфігурації продукту, [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
 
-Приклад UA
-`REQ-OPT-001. Якщо модуль експорту до CSV включено до конфігурації продукту, сервіс звітів повинен надавати користувачеві можливість експортувати результати пошуку у файл CSV.`
+Приклад:
 
-Example EN
-`REQ-OPT-001. Where the CSV export module is included in the product configuration, the Reporting Service shall allow the user to export search results to a CSV file.`
+- EN:
+  REQ-OPT-001. Where the CSV export module is included in the product configuration, the Reporting Service shall export
+  search results to a CSV file upon user request.
 
-Структура прикладу
+- UA:
+  REQ-OPT-001. У разі наявності модуля експорту до CSV у конфігурації продукту, сервіс звітів повинен експортувати
+  результати пошуку у файл CSV на запит користувача.
+
+Структура прикладу:
 
 - Condition: Where the CSV export module is included in the product configuration
 - Subject: the Reporting Service
-- Action: shall allow
+- Action: allow
 - Object: the user to export search results to a CSV file
 - Constraint: the function is available only when the module is included
 
@@ -251,23 +315,30 @@ Example EN
 Складений патерн поєднує умову, подію або стан. Це не обов’язково має бути одне довге речення: якщо в ньому кілька
 незалежних обов’язків, їх слід розділити.
 
-Префікс вимоги: `REQ-CPX`
-Структура: `While [State], when [Trigger], [Subject] shall [Action] [Object] [Constraint]`
+Префікс вимоги: `REQ-CPX`  
+Структура: `While [State], when [Trigger], [Subject] shall [Action] [Object] [Constraint]`  
+Шаблон EN: `While [State], when [Trigger], [Subject] shall [Action] [Object] [Constraint of Action].`  
 Шаблон UA: `Поки [стан], коли [подія], [суб’єкт] повинен/повинна [дія] [об’єкт] [обмеження дії].`
-Template EN: `While [State], when [Trigger], [Subject] shall [Action] [Object] [Constraint of Action].`
 
-Приклад UA:
-`REQ-CPX-001. Поки платіж перебуває у стані Pending, коли сервіс платежів отримує підтвердження від провайдера, сервіс платежів повинен змінити стан платежу на Confirmed протягом 2 секунд.`
+> Примітка:
+> EARS Complex - це комбінація Where (У разі наявності)/While (Поки)/When (Коли)/If (Якщо)
 
-Example EN:
-`REQ-CPX-001. While a payment is in the Pending state, when the Payment Service receives confirmation from the provider, the Payment Service shall change the payment state to Confirmed within 2 seconds.`
+Приклади
 
-Структура прикладу
+- EN:
+  REQ-CPX-001. While a payment is in the Pending state, when the Payment Service receives confirmation from the
+  provider, the Payment Service shall change the payment state to Confirmed within 2 seconds.
+
+- UA:
+  REQ-CPX-001. Поки платіж перебуває у стані Pending, коли сервіс платежів отримує підтвердження від провайдера, сервіс
+  платежів повинен змінити стан платежу на Confirmed протягом 2 секунд.
+
+Структура прикладу:
 
 - State: the payment is in the Pending state
 - Trigger: the Payment Service receives confirmation from the provider
 - Subject: the Payment Service
-- Action: shall change
+- Action: change
 - Object: the payment state to Confirmed
 - Constraint: within 2 seconds
 
@@ -276,29 +347,60 @@ Example EN:
 
 # 3. Додаткові атрибути вимоги
 
-Не всі дані про вимогу потрібно включати в її нормативне речення. Наприклад, обґрунтування, джерело та метод верифікації
-краще зберігати як окремі атрибути.
+| Поле                          | English                  | Обов’язковість                                     | Призначення                                                                                                                          |
+|-------------------------------|--------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| Ідентифікатор                 | `Requirement ID`         | Обов’язкове                                        | Унікально ідентифікує вимогу (наприклад, `REQ-SEC-001`).                                                                             |
+| Рівень                        | `Level`                  | Рекомендоване                                      | Пояснює, навіщо потрібна вимога. Бізнес- або технічна причина потреби в цій вимозі.                                                  |
+| Тип                           | `Type`                   | Рекомендоване                                      | Тип вимоги.                                                                                                                          |
+| EARS                          | `EARS Pattern`           | Рекомендоване                                      | Тип формулювання за EARS                                                                                                             |
+| Характеристика якості         | `Quality Characteristic` | Якщо застосовується                                | Пов’язує вимогу з ISO/IEC 25010:2023 (характеристика → підхарактеристика).                                                           |
+| Джерело                       | `Source`                 | Рекомендоване                                      | Визначає походження вимоги. Зацікавлена сторона, стандарт, бізнес-правило чи нормативний документ.                                   |
+| Обгрунтування                 | `Rationale`              | Рекомендоване                                      | Пояснює, навіщо потрібна вимога. Бізнес- або технічна причина потреби в цій вимозі.                                                  |
+| Метод верифікації             | `Verification Method`    | Рекомендоване                                      | Визначає, як перевірятиметься виконання. Тестування (Test), Демонстрація (Demonstration), Інспекція (Inspection), Аналіз (Analysis). |
+| Критерії приймання            | `Acceptance Criteria`    | Для вимог, що потребують формалізованого приймання | Визначають умови успішної перевірки. Чіткі перевірювані умови готовності та проходження приймання.                                   |
+| Батьківська вимога            | `Parent Requirement`     | Якщо вимога похідна                                | Забезпечує простежуваність (трасування) до вимоги вищого рівня.                                                                      |
+| Пріоритет зацікавлених сторін | `Stakeholder Priority`   | Рекомендоване                                      | Важливість вимоги, встановлена за згодою зацікавлених сторін (наприклад, за шкалою 1–5 або High/Medium/Low)                          |
 
-| Поле                  | English                  | Обов’язковість                                     | Призначення                                                                                                                          |
-|-----------------------|--------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| Ідентифікатор         | `Requirement ID`         | Обов’язкове                                        | Унікально ідентифікує вимогу (наприклад, `REQ-SEC-001`).                                                                             |
-| Тип                   | `Type`                   | Рекомендоване                                      | Тип вимоги.                                                                                                                          |
-| EARS                  | `EARS Pattern`           | Рекомендоване                                      | Тип формулювання: Ubiquitous, Event-driven, State-driven, Unwanted behaviour, Complex.                                               |
-| Характеристика якості | `Quality Characteristic` | Якщо застосоується                                 | Пов’язує вимогу з ISO/IEC 25010:2023 (характеристика → підхарактеристика).                                                           |
-| Джерело               | `Source`                 | Рекомендоване                                      | Визначає походження вимоги. Зацікавлена сторона, стандарт, бізнес-правило чи нормативний документ.                                   |
-| Обґрунтування         | `Rationale`              | Рекомендоване                                      | Пояснює, навіщо потрібна вимога. Бізнес- або технічна причина потреби в цій вимозі.                                                  |
-| Метод верифікації     | `Verification Method`    | Рекомендоване                                      | Визначає, як перевірятиметься виконання. Тестування (Test), Демонстрація (Demonstration), Інспекція (Inspection), Аналіз (Analysis). |
-| Критерії приймання    | `Acceptance Criteria`    | Для вимог, що потребують формалізованого приймання | Визначають умови успішної перевірки. Чіткі перевірювані умови готовності та проходження приймання.                                   |
-| Батьківська вимога    | `Parent Requirement`     | Якщо вимога похідна                                | Забезпечує простежуваність (трасування) до вимоги вищого рівня.                                                                      |
+## Перелік рівнів (Level):
+
+- Stakeholder Requirement
+- System Requirement
+- Software Requirement
+
+## Перелік типів (Type):
+
+- Functional/Performance (Функціональні/Продуктивність): Опис дій чи завдань системи та кількісних вимірів їх
+  виконання
+- Interface (Інтерфейсні): Вимоги до взаємодії із зовнішніми системами чи внутрішніми елементами (включаючи людський
+  фактор)
+- Process Requirements (Вимоги до процесів): Обмеження щодо контрактних умов, законів або конкретних методів розробки
+- Quality (Non-Functional) Requirements (Якісні/Нефункціональні): Характеристики якості системи, такі як надійність,
+  безпека, переносність, зручність обслуговування
+- Usability/Quality-in-Use Requirements (Зручність використання): Критерії ефективності, продуктивності та задоволеності
+  користувачів у конкретному контексті використання
+- Human Factors Requirements (Людські фактори): Характеристики взаємодії з людьми з огляду на безпеку, здоров'я та
+  комфорт
+
+## Перелік EARS патернів (EARS):
+
+- Ubiquitous
+- Event-driven
+- State-driven
+- Unwanted behaviour
+- Optional feature
+- Complex
 
 ## Приклад вимоги
 
-Requirement ID: `REQ-PERF-001`
-Type: `Quality Requirement`
-EARS: `Event-driven`
-Quality Characteristic: `Performance efficiency → Time behaviour`
-Rationale: `Забезпечити передбачуваний час очікування під час пошуку замовлень.`
-Verification method: `навантажувальне тестування / Load testing.`
+ID: `REQ-PERF-001`  
+Level: `System Requirement`  
+Type: `Quality Requirements`  
+EARS: `Event-driven`  
+Quality Characteristic: `Performance efficiency → Time behaviour`  
+Rationale: `Забезпечити передбачуваний час очікування під час пошуку замовлень.`  
+Verification method: `навантажувальне тестування / Load testing.`  
+Формулювання вимоги: Коли API замовлень отримує валідний запит пошуку, API замовлень повинен повернути результат
+протягом 300 мс щонайменше для 95 % запитів за навантаження 100 запитів за секунду.
 
 Acceptance criteria:
 
@@ -306,9 +408,6 @@ Acceptance criteria:
 - навантаження становить 100 запитів за секунду;
 - щонайменше 95 % валідних запитів завершуються за 300 мс або швидше;
 - результати вимірювання збережені у звіті тестування.
-
-Формулювання вимоги: Коли API замовлень отримує валідний запит пошуку, API замовлень повинен повернути результат
-протягом 300 мс щонайменше для 95 % запитів за навантаження 100 запитів за секунду.
 
 Структурна розмітка:
 
@@ -325,10 +424,9 @@ Acceptance criteria:
 
 1. Одна вимога - один незалежно перевірюваний обов’язок. Якщо речення містить кілька незалежних дій, розділяйте його на
    окремі вимоги.
-2. Кожна нормативна вимога повинна мати чіткий суб’єкт і дію. Не використовуйте конструкції на кшталт «має бути
-   забезпечено» без визначення відповідального компонента.
-3. Використовуйте shall для обов’язкових вимог англійською. Українським відповідником у вашому каталозі може бути
-   «повинен/повинна/повинно». Внутрішній стандарт має визначати це правило послідовно.
+2. Кожна вимога повинна мати суб’єкт і дію. Не використовуйте конструкції на кшталт "має бути забезпечено" без
+   визначення відповідального компонента.
+3. Використовуйте shall для обов’язкових вимог англійською або "повинен/повинна/повинно" українською.
 4. Додавайте умову лише тоді, коли вона обмежує застосування вимоги. Якщо вимога діє постійно, не потрібно штучно
    створювати Condition.
 5. Вимірювані вимоги повинні містити або посилатися на критерії вимірювання. Час відповіді, доступність, кількість
@@ -338,9 +436,17 @@ Acceptance criteria:
 7. Не використовуйте назви характеристик якості замість вимог. Наприклад, Maintainability - це класифікація, а не
    достатнє нормативне формулювання. Потрібно визначити, яку саме властивість система повинна забезпечувати та як її
    перевірити.
-8. Зберігайте обґрунтування, джерело й метод верифікації окремо від нормативного речення. Це полегшує аудит, управління
+8. Зберігайте обгрунтування, джерело й метод верифікації окремо від нормативного речення. Це полегшує аудит, управління
    змінами та простежуваність.
-9. Не нав’язуйте реалізацію без обґрунтування. Якщо мета - досягти властивості, формулюйте вимогу через результат. Якщо
+9. Не нав’язуйте реалізацію без обгрунтування. Якщо мета - досягти властивості, формулюйте вимогу через результат. Якщо
    технологія або алгоритм є обов’язковим обмеженням, зазначайте його явно та фіксуйте джерело такого обмеження.
 10. Застосовуйте ISO/IEC 25010:2023 як класифікацію характеристик якості, а не як готову бібліотеку текстів вимог.
     Шаблони для кожної підхарактеристики - це практичні конструкції, які потрібно адаптувати до контексту продукту.
+11. Кожна вимога повинна бути:
+    - Necessary (Необхідна)
+    - Unambiguous (Однозначна)
+    - Singular (Атомарна / єдина)
+    - Complete (Повна)
+    - Feasible (Здійсненна)
+    - Verifiable (Перевірювана / тестована)
+    - Consistent (Несуперечлива)
